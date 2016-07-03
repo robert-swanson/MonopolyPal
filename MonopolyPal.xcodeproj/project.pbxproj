@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB456A0A1D28C52900988293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB456A091D28C52900988293 /* AppDelegate.swift */; };
+		EB456A0C1D28C52900988293 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB456A0B1D28C52900988293 /* MasterViewController.swift */; };
+		EB456A0E1D28C52900988293 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB456A0D1D28C52900988293 /* DetailViewController.swift */; };
+		EB456A111D28C52900988293 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB456A0F1D28C52900988293 /* Main.storyboard */; };
+		EB456A131D28C52900988293 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB456A121D28C52900988293 /* Assets.xcassets */; };
+		EB456A161D28C52900988293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB456A141D28C52900988293 /* LaunchScreen.storyboard */; };
+		EB456A211D28C52900988293 /* MonopolyPalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB456A201D28C52900988293 /* MonopolyPalTests.swift */; };
+		EB456A2C1D28C52900988293 /* MonopolyPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB456A2B1D28C52900988293 /* MonopolyPalUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB456A1D1D28C52900988293 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB4569FE1D28C52800988293 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB456A051D28C52800988293;
+			remoteInfo = MonopolyPal;
+		};
+		EB456A281D28C52900988293 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB4569FE1D28C52800988293 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB456A051D28C52800988293;
+			remoteInfo = MonopolyPal;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EB456A061D28C52900988293 /* MonopolyPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonopolyPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB456A091D28C52900988293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EB456A0B1D28C52900988293 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		EB456A0D1D28C52900988293 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EB456A101D28C52900988293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB456A121D28C52900988293 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB456A151D28C52900988293 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EB456A171D28C52900988293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB456A1C1D28C52900988293 /* MonopolyPalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonopolyPalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB456A201D28C52900988293 /* MonopolyPalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonopolyPalTests.swift; sourceTree = "<group>"; };
+		EB456A221D28C52900988293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB456A271D28C52900988293 /* MonopolyPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonopolyPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB456A2B1D28C52900988293 /* MonopolyPalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonopolyPalUITests.swift; sourceTree = "<group>"; };
+		EB456A2D1D28C52900988293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB456A031D28C52800988293 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB456A191D28C52900988293 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB456A241D28C52900988293 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB4569FD1D28C52800988293 = {
+			isa = PBXGroup;
+			children = (
+				EB456A081D28C52900988293 /* MonopolyPal */,
+				EB456A1F1D28C52900988293 /* MonopolyPalTests */,
+				EB456A2A1D28C52900988293 /* MonopolyPalUITests */,
+				EB456A071D28C52900988293 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB456A071D28C52900988293 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB456A061D28C52900988293 /* MonopolyPal.app */,
+				EB456A1C1D28C52900988293 /* MonopolyPalTests.xctest */,
+				EB456A271D28C52900988293 /* MonopolyPalUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB456A081D28C52900988293 /* MonopolyPal */ = {
+			isa = PBXGroup;
+			children = (
+				EB456A091D28C52900988293 /* AppDelegate.swift */,
+				EB456A0B1D28C52900988293 /* MasterViewController.swift */,
+				EB456A0D1D28C52900988293 /* DetailViewController.swift */,
+				EB456A0F1D28C52900988293 /* Main.storyboard */,
+				EB456A121D28C52900988293 /* Assets.xcassets */,
+				EB456A141D28C52900988293 /* LaunchScreen.storyboard */,
+				EB456A171D28C52900988293 /* Info.plist */,
+			);
+			path = MonopolyPal;
+			sourceTree = "<group>";
+		};
+		EB456A1F1D28C52900988293 /* MonopolyPalTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB456A201D28C52900988293 /* MonopolyPalTests.swift */,
+				EB456A221D28C52900988293 /* Info.plist */,
+			);
+			path = MonopolyPalTests;
+			sourceTree = "<group>";
+		};
+		EB456A2A1D28C52900988293 /* MonopolyPalUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EB456A2B1D28C52900988293 /* MonopolyPalUITests.swift */,
+				EB456A2D1D28C52900988293 /* Info.plist */,
+			);
+			path = MonopolyPalUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB456A051D28C52800988293 /* MonopolyPal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB456A301D28C52900988293 /* Build configuration list for PBXNativeTarget "MonopolyPal" */;
+			buildPhases = (
+				EB456A021D28C52800988293 /* Sources */,
+				EB456A031D28C52800988293 /* Frameworks */,
+				EB456A041D28C52800988293 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MonopolyPal;
+			productName = MonopolyPal;
+			productReference = EB456A061D28C52900988293 /* MonopolyPal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB456A1B1D28C52900988293 /* MonopolyPalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB456A331D28C52900988293 /* Build configuration list for PBXNativeTarget "MonopolyPalTests" */;
+			buildPhases = (
+				EB456A181D28C52900988293 /* Sources */,
+				EB456A191D28C52900988293 /* Frameworks */,
+				EB456A1A1D28C52900988293 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB456A1E1D28C52900988293 /* PBXTargetDependency */,
+			);
+			name = MonopolyPalTests;
+			productName = MonopolyPalTests;
+			productReference = EB456A1C1D28C52900988293 /* MonopolyPalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EB456A261D28C52900988293 /* MonopolyPalUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB456A361D28C52900988293 /* Build configuration list for PBXNativeTarget "MonopolyPalUITests" */;
+			buildPhases = (
+				EB456A231D28C52900988293 /* Sources */,
+				EB456A241D28C52900988293 /* Frameworks */,
+				EB456A251D28C52900988293 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB456A291D28C52900988293 /* PBXTargetDependency */,
+			);
+			name = MonopolyPalUITests;
+			productName = MonopolyPalUITests;
+			productReference = EB456A271D28C52900988293 /* MonopolyPalUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB4569FE1D28C52800988293 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Robert Swanson";
+				TargetAttributes = {
+					EB456A051D28C52800988293 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = T8Q6GCQBY7;
+					};
+					EB456A1B1D28C52900988293 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = T8Q6GCQBY7;
+						TestTargetID = EB456A051D28C52800988293;
+					};
+					EB456A261D28C52900988293 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = T8Q6GCQBY7;
+						TestTargetID = EB456A051D28C52800988293;
+					};
+				};
+			};
+			buildConfigurationList = EB456A011D28C52800988293 /* Build configuration list for PBXProject "MonopolyPal" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB4569FD1D28C52800988293;
+			productRefGroup = EB456A071D28C52900988293 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB456A051D28C52800988293 /* MonopolyPal */,
+				EB456A1B1D28C52900988293 /* MonopolyPalTests */,
+				EB456A261D28C52900988293 /* MonopolyPalUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB456A041D28C52800988293 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB456A161D28C52900988293 /* LaunchScreen.storyboard in Resources */,
+				EB456A131D28C52900988293 /* Assets.xcassets in Resources */,
+				EB456A111D28C52900988293 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB456A1A1D28C52900988293 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB456A251D28C52900988293 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB456A021D28C52800988293 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB456A0E1D28C52900988293 /* DetailViewController.swift in Sources */,
+				EB456A0C1D28C52900988293 /* MasterViewController.swift in Sources */,
+				EB456A0A1D28C52900988293 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB456A181D28C52900988293 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB456A211D28C52900988293 /* MonopolyPalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB456A231D28C52900988293 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB456A2C1D28C52900988293 /* MonopolyPalUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB456A1E1D28C52900988293 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB456A051D28C52800988293 /* MonopolyPal */;
+			targetProxy = EB456A1D1D28C52900988293 /* PBXContainerItemProxy */;
+		};
+		EB456A291D28C52900988293 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB456A051D28C52800988293 /* MonopolyPal */;
+			targetProxy = EB456A281D28C52900988293 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EB456A0F1D28C52900988293 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB456A101D28C52900988293 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EB456A141D28C52900988293 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB456A151D28C52900988293 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB456A2E1D28C52900988293 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB456A2F1D28C52900988293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB456A311D28C52900988293 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MonopolyPal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EB456A321D28C52900988293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MonopolyPal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		EB456A341D28C52900988293 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MonopolyPalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPalTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonopolyPal.app/MonopolyPal";
+			};
+			name = Debug;
+		};
+		EB456A351D28C52900988293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MonopolyPalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPalTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonopolyPal.app/MonopolyPal";
+			};
+			name = Release;
+		};
+		EB456A371D28C52900988293 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MonopolyPalUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPalUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MonopolyPal;
+			};
+			name = Debug;
+		};
+		EB456A381D28C52900988293 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MonopolyPalUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPalUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MonopolyPal;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB456A011D28C52800988293 /* Build configuration list for PBXProject "MonopolyPal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB456A2E1D28C52900988293 /* Debug */,
+				EB456A2F1D28C52900988293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB456A301D28C52900988293 /* Build configuration list for PBXNativeTarget "MonopolyPal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB456A311D28C52900988293 /* Debug */,
+				EB456A321D28C52900988293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EB456A331D28C52900988293 /* Build configuration list for PBXNativeTarget "MonopolyPalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB456A341D28C52900988293 /* Debug */,
+				EB456A351D28C52900988293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		EB456A361D28C52900988293 /* Build configuration list for PBXNativeTarget "MonopolyPalUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB456A371D28C52900988293 /* Debug */,
+				EB456A381D28C52900988293 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EB4569FE1D28C52800988293 /* Project object */;
+}
