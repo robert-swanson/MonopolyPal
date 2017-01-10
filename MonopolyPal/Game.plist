@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Game</key>
+	<dict>
+		<key>New Game Template</key>
+		<dict>
+			<key>Details</key>
+			<dict>
+				<key>Get Money From Bank</key>
+				<array>
+					<string>GetVar:.Get:Amount</string>
+				</array>
+				<key>Give Money To Bank</key>
+				<array>
+					<string>GetVar:.Give:Amount</string>
+				</array>
+				<key>Trade With Player</key>
+				<array>
+					<string>PlayerPicker:.PlayerPicker</string>
+					<string>GetVar:.Amount:Amount</string>
+					<string>TradeMode:.TradeMode</string>
+				</array>
+				<key>Pay Rent</key>
+				<array>
+					<string>GetVar:.Give:Rent</string>
+					<string>PlayerPicker:.PlayerPicker</string>
+				</array>
+				<key>Buy Property</key>
+				<array>
+					<string>GetVar:.Give:House Price</string>
+				</array>
+				<key>Mortgage Property</key>
+				<array>
+					<string>GetVar:.Get:Original Price:.5</string>
+				</array>
+				<key>Unmortgage Property</key>
+				<array>
+					<string>GetVar:.Give:Original Price:.6</string>
+				</array>
+				<key>Buy House/Hotel</key>
+				<array>
+					<string>Incrementer:.Incrementer::::Quantity</string>
+					<string>Easy:.Give:::50:Row 1</string>
+					<string>Easy:.Give:::100:Row 2</string>
+					<string>Easy:.Give:::150:Row 3</string>
+					<string>Easy:.Give:::200:Row 4</string>
+				</array>
+				<key>Sell House/Hotel</key>
+				<array>
+					<string>Incrementer:.Incrementer::::Quantity</string>
+					<string>Easy:.Get:::25:Row 1</string>
+					<string>Easy:.Get:::50:Row 2</string>
+					<string>Easy:.Get:::75:Row 3</string>
+					<string>Easy:.Get:::100:Row 4</string>
+				</array>
+			</dict>
+			<key>ActionSections</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>2</integer>
+				<integer>5</integer>
+				<integer>1</integer>
+			</array>
+			<key>Actions</key>
+			<array>
+				<string>Pass Go:passGo:No:200</string>
+				<string>Get Money From Bank:bank:Yes:0</string>
+				<string>Give Money To Bank:bank:Yes:0</string>
+				<string>Trade With Player:trade:Yes:0</string>
+				<string>Pay Rent:Rent:Yes:0</string>
+				<string>Buy Property:Rent:Yes:0</string>
+				<string>Buy House/Hotel:Buy House:Yes:0</string>
+				<string>Sell House/Hotel:Sell House:Yes:0</string>
+				<string>Mortgage Property:Mortgage:Yes:0</string>
+				<string>Unmortgage Property:Mortgage:Yes:0</string>
+				<string>Bail:Bail:No:-50</string>
+			</array>
+			<key>Issues</key>
+			<array/>
+		</dict>
+		<key>Templates</key>
+		<dict>
+			<key>Monopoly</key>
+			<dict>
+				<key>Details</key>
+				<dict>
+					<key>Get Money From Bank</key>
+					<array>
+						<string>GetVar:.Get:Amount</string>
+					</array>
+					<key>Give Money To Bank</key>
+					<array>
+						<string>GetVar:.Give:Amount</string>
+					</array>
+					<key>Trade With Player</key>
+					<array>
+						<string>PlayerPicker:.PlayerPicker</string>
+						<string>GetVar:.Amount:Amount</string>
+						<string>TradeMode:.TradeMode</string>
+					</array>
+					<key>Pay Rent</key>
+					<array>
+						<string>GetVar:.Give:Rent</string>
+						<string>PlayerPicker:.PlayerPicker</string>
+					</array>
+					<key>Buy Property</key>
+					<array>
+						<string>GetVar:.Give:House Price</string>
+					</array>
+					<key>Mortgage Property</key>
+					<array>
+						<string>GetVar:.Get:Original Price:.5</string>
+					</array>
+					<key>Unmortgage Property</key>
+					<array>
+						<string>GetVar:.Give:Original Price:.6</string>
+					</array>
+					<key>Buy House/Hotel</key>
+					<array>
+						<string>Incrementer:.Incrementer::::Quantity</string>
+						<string>Easy:.Give:::50:Row 1</string>
+						<string>Easy:.Give:::100:Row 2</string>
+						<string>Easy:.Give:::150:Row 3</string>
+						<string>Easy:.Give:::200:Row 4</string>
+					</array>
+					<key>Sell House/Hotel</key>
+					<array>
+						<string>Incrementer:.Incrementer::::Quantity</string>
+						<string>Easy:.Get:::25:Row 1</string>
+						<string>Easy:.Get:::50:Row 2</string>
+						<string>Easy:.Get:::75:Row 3</string>
+						<string>Easy:.Get:::100:Row 4</string>
+					</array>
+				</dict>
+				<key>ActionSections</key>
+				<array>
+					<integer>1</integer>
+					<integer>2</integer>
+					<integer>2</integer>
+					<integer>5</integer>
+					<integer>1</integer>
+				</array>
+				<key>Actions</key>
+				<array>
+					<string>Pass Go:passGo:No:200</string>
+					<string>Get Money From Bank:bank:Yes:0</string>
+					<string>Give Money To Bank:bank:Yes:0</string>
+					<string>Trade With Player:trade:Yes:0</string>
+					<string>Pay Rent:Rent:Yes:0</string>
+					<string>Buy Property:Rent:Yes:0</string>
+					<string>Buy House/Hotel:Buy House:Yes:0</string>
+					<string>Sell House/Hotel:Sell House:Yes:0</string>
+					<string>Mortgage Property:Mortgage:Yes:0</string>
+					<string>Unmortgage Property:Mortgage:Yes:0</string>
+					<string>Bail:Bail:No:-50</string>
+				</array>
+				<key>Issues</key>
+				<array/>
+			</dict>
+		</dict>
+		<key>Players</key>
+		<dict>
+			<key>Names</key>
+			<array>
+				<string>Player</string>
+			</array>
+			<key>Scores</key>
+			<array>
+				<integer>2000</integer>
+			</array>
+		</dict>
+		<key>History</key>
+		<array/>
+		<key>Settings</key>
+		<dict>
+			<key>Theme Names</key>
+			<array>
+				<string>Basic Monopoly</string>
+			</array>
+			<key>Themes</key>
+			<dict>
+				<key>Basic Monopoly</key>
+				<dict>
+					<key>Top Bar</key>
+					<string>255,0,0</string>
+					<key>Titles</key>
+					<string>255,255,255</string>
+					<key>Bar Buttons</key>
+					<string>255,255,255</string>
+					<key>Background</key>
+					<string>255,160,122</string>
+					<key>Cells</key>
+					<string>255,255,255</string>
+					<key>Bottom Bar</key>
+					<string>255,0,0</string>
+					<key>Unselcted Bar Buttons</key>
+					<string>255,255,255</string>
+					<key>Selected Bar Buttons</key>
+					<string>255,255,0</string>
+					<key>Cell Text</key>
+					<string>0,0,0</string>
+				</dict>
+			</dict>
+			<key>Selected Theme</key>
+			<string>Basic Monopoly</string>
+			<key>Order</key>
+			<string>true</string>
+			<key>Allow Debt</key>
+			<string>true</string>
+			<key>AutoLock</key>
+			<string>false</string>
+			<key>Start Cash</key>
+			<string>2000</string>
+			<key>Organize</key>
+			<string>Time</string>
+			<key>Selected Game</key>
+			<string>Monopoly</string>
+			<key>Unit</key>
+			<string>&lt;$</string>
+		</dict>
+		<key>Badge</key>
+		<integer>0</integer>
+		<key>Selected Players</key>
+		<array/>
+	</dict>
+</dict>
+</plist>

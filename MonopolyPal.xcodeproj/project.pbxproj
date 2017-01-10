@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB057EBC1D5292DD0037DCCF /* OnOffCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB057EBB1D5292DD0037DCCF /* OnOffCellController.swift */; };
+		EB0C87721D674D1200FAACE2 /* PlayerPickerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C87711D674D1200FAACE2 /* PlayerPickerCellController.swift */; };
+		EB10EE891D3C2E460072C490 /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10EE881D3C2E460072C490 /* PlistManager.swift */; };
+		EB10EE8D1D3C30A60072C490 /* Game.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB10EE8C1D3C30A60072C490 /* Game.plist */; };
+		EB1EE72A1E1DEAA500E7E8CB /* OtherUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1EE7291E1DEAA500E7E8CB /* OtherUnitViewController.swift */; };
+		EB21C3FF1D3D8FCE00D78D9F /* ActionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB21C3FE1D3D8FCE00D78D9F /* ActionDetailViewController.swift */; };
+		EB38D4D31D66522500851CA6 /* IncrementerCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D4D21D66522500851CA6 /* IncrementerCellController.swift */; };
+		EB38D4D51D66523700851CA6 /* SegmentedControllCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D4D41D66523700851CA6 /* SegmentedControllCellController.swift */; };
 		EB456A0A1D28C52900988293 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB456A091D28C52900988293 /* AppDelegate.swift */; };
 		EB456A0C1D28C52900988293 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB456A0B1D28C52900988293 /* MasterViewController.swift */; };
 		EB456A0E1D28C52900988293 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB456A0D1D28C52900988293 /* DetailViewController.swift */; };
@@ -15,6 +23,20 @@
 		EB456A161D28C52900988293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB456A141D28C52900988293 /* LaunchScreen.storyboard */; };
 		EB456A211D28C52900988293 /* MonopolyPalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB456A201D28C52900988293 /* MonopolyPalTests.swift */; };
 		EB456A2C1D28C52900988293 /* MonopolyPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB456A2B1D28C52900988293 /* MonopolyPalUITests.swift */; };
+		EB5BEB3E1D694C910055B056 /* EasyCellContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5BEB3D1D694C910055B056 /* EasyCellContoller.swift */; };
+		EB63ECA71E1EB56B00B813BE /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63ECA61E1EB56B00B813BE /* ThemeSelectionViewController.swift */; };
+		EB63ECA91E1ED27E00B813BE /* ThemeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63ECA81E1ED27E00B813BE /* ThemeEditViewController.swift */; };
+		EB82A1FE1D57DA5300BC26A6 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB82A1FD1D57DA5300BC26A6 /* SelectionViewController.swift */; };
+		EB82A2001D57DA5E00BC26A6 /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB82A1FF1D57DA5E00BC26A6 /* ManageViewController.swift */; };
+		EB82A2031D57DBB700BC26A6 /* TableViewControllerTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB82A2021D57DBB700BC26A6 /* TableViewControllerTemplate.swift */; };
+		EBA0D3211D412D3B00606C24 /* ActionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA0D3201D412D3B00606C24 /* ActionDetail.swift */; };
+		EBA0D3231D414B0700606C24 /* GetVarCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA0D3221D414B0700606C24 /* GetVarCellController.swift */; };
+		EBAA6A661D2DA8AC00DB127B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAA6A651D2DA8AC00DB127B /* Action.swift */; };
+		EBAE86E01D655F0A00267962 /* PlayerPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE86DF1D655F0A00267962 /* PlayerPickerViewController.swift */; };
+		EBB7BCE01D4EEF35000660DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB7BCDF1D4EEF35000660DD /* SettingsViewController.swift */; };
+		EBDE91FE1D29A35F0002C878 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE91FD1D29A35F0002C878 /* Player.swift */; };
+		EBF796D71D4691D800931F83 /* GameHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF796D61D4691D800931F83 /* GameHistory.swift */; };
+		EBF796D91D4691EC00931F83 /* GameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF796D81D4691EC00931F83 /* GameHistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +57,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB057EBB1D5292DD0037DCCF /* OnOffCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnOffCellController.swift; sourceTree = "<group>"; };
+		EB0C87711D674D1200FAACE2 /* PlayerPickerCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerPickerCellController.swift; sourceTree = "<group>"; };
+		EB10EE881D3C2E460072C490 /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
+		EB10EE8C1D3C30A60072C490 /* Game.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Game.plist; sourceTree = "<group>"; };
+		EB1EE7291E1DEAA500E7E8CB /* OtherUnitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherUnitViewController.swift; sourceTree = "<group>"; };
+		EB21C3FE1D3D8FCE00D78D9F /* ActionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetailViewController.swift; sourceTree = "<group>"; };
+		EB38D4D21D66522500851CA6 /* IncrementerCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncrementerCellController.swift; sourceTree = "<group>"; };
+		EB38D4D41D66523700851CA6 /* SegmentedControllCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControllCellController.swift; sourceTree = "<group>"; };
 		EB456A061D28C52900988293 /* MonopolyPal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonopolyPal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB456A091D28C52900988293 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB456A0B1D28C52900988293 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +79,20 @@
 		EB456A271D28C52900988293 /* MonopolyPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonopolyPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB456A2B1D28C52900988293 /* MonopolyPalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonopolyPalUITests.swift; sourceTree = "<group>"; };
 		EB456A2D1D28C52900988293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB5BEB3D1D694C910055B056 /* EasyCellContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyCellContoller.swift; sourceTree = "<group>"; };
+		EB63ECA61E1EB56B00B813BE /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
+		EB63ECA81E1ED27E00B813BE /* ThemeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeEditViewController.swift; sourceTree = "<group>"; };
+		EB82A1FD1D57DA5300BC26A6 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
+		EB82A1FF1D57DA5E00BC26A6 /* ManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
+		EB82A2021D57DBB700BC26A6 /* TableViewControllerTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerTemplate.swift; sourceTree = "<group>"; };
+		EBA0D3201D412D3B00606C24 /* ActionDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDetail.swift; sourceTree = "<group>"; };
+		EBA0D3221D414B0700606C24 /* GetVarCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetVarCellController.swift; sourceTree = "<group>"; };
+		EBAA6A651D2DA8AC00DB127B /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		EBAE86DF1D655F0A00267962 /* PlayerPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerPickerViewController.swift; sourceTree = "<group>"; };
+		EBB7BCDF1D4EEF35000660DD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EBDE91FD1D29A35F0002C878 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		EBF796D61D4691D800931F83 /* GameHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistory.swift; sourceTree = "<group>"; };
+		EBF796D81D4691EC00931F83 /* GameHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +144,10 @@
 			isa = PBXGroup;
 			children = (
 				EB456A091D28C52900988293 /* AppDelegate.swift */,
-				EB456A0B1D28C52900988293 /* MasterViewController.swift */,
-				EB456A0D1D28C52900988293 /* DetailViewController.swift */,
-				EB456A0F1D28C52900988293 /* Main.storyboard */,
+				EBAA6A671D2DAACD00DB127B /* View Controllers */,
+				EBAA6A681D2DAAE200DB127B /* Resources */,
+				EBAA6A691D2DAAFE00DB127B /* Interface */,
 				EB456A121D28C52900988293 /* Assets.xcassets */,
-				EB456A141D28C52900988293 /* LaunchScreen.storyboard */,
-				EB456A171D28C52900988293 /* Info.plist */,
 			);
 			path = MonopolyPal;
 			sourceTree = "<group>";
@@ -126,6 +168,86 @@
 				EB456A2D1D28C52900988293 /* Info.plist */,
 			);
 			path = MonopolyPalUITests;
+			sourceTree = "<group>";
+		};
+		EB82A2011D57DA6500BC26A6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EBB7BCDF1D4EEF35000660DD /* SettingsViewController.swift */,
+				EB63ECA61E1EB56B00B813BE /* ThemeSelectionViewController.swift */,
+				EB63ECA81E1ED27E00B813BE /* ThemeEditViewController.swift */,
+				EB82A1FD1D57DA5300BC26A6 /* SelectionViewController.swift */,
+				EB82A1FF1D57DA5E00BC26A6 /* ManageViewController.swift */,
+				EB1EE7291E1DEAA500E7E8CB /* OtherUnitViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		EBA0D3241D414C4F00606C24 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EBA0D3221D414B0700606C24 /* GetVarCellController.swift */,
+				EB38D4D21D66522500851CA6 /* IncrementerCellController.swift */,
+				EB38D4D41D66523700851CA6 /* SegmentedControllCellController.swift */,
+				EB057EBB1D5292DD0037DCCF /* OnOffCellController.swift */,
+				EB0C87711D674D1200FAACE2 /* PlayerPickerCellController.swift */,
+				EB5BEB3D1D694C910055B056 /* EasyCellContoller.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		EBAA6A671D2DAACD00DB127B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EB456A0B1D28C52900988293 /* MasterViewController.swift */,
+				EBF796D81D4691EC00931F83 /* GameHistoryViewController.swift */,
+				EBAE86E11D655F1100267962 /* Actions */,
+				EB82A2011D57DA6500BC26A6 /* Settings */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EBAA6A681D2DAAE200DB127B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EBB7BCE31D4EF043000660DD /* Classes */,
+				EBA0D3241D414C4F00606C24 /* Cells */,
+				EB10EE881D3C2E460072C490 /* PlistManager.swift */,
+				EB456A171D28C52900988293 /* Info.plist */,
+				EB10EE8C1D3C30A60072C490 /* Game.plist */,
+				EB82A2021D57DBB700BC26A6 /* TableViewControllerTemplate.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		EBAA6A691D2DAAFE00DB127B /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				EB456A0F1D28C52900988293 /* Main.storyboard */,
+				EB456A141D28C52900988293 /* LaunchScreen.storyboard */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		EBAE86E11D655F1100267962 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				EB456A0D1D28C52900988293 /* DetailViewController.swift */,
+				EB21C3FE1D3D8FCE00D78D9F /* ActionDetailViewController.swift */,
+				EBAE86DF1D655F0A00267962 /* PlayerPickerViewController.swift */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		EBB7BCE31D4EF043000660DD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EBF796D61D4691D800931F83 /* GameHistory.swift */,
+				EBDE91FD1D29A35F0002C878 /* Player.swift */,
+				EBAA6A651D2DA8AC00DB127B /* Action.swift */,
+				EBA0D3201D412D3B00606C24 /* ActionDetail.swift */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,22 +312,28 @@
 		EB4569FE1D28C52800988293 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Robert Swanson";
 				TargetAttributes = {
 					EB456A051D28C52800988293 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = T8Q6GCQBY7;
+						LastSwiftMigration = 0810;
 					};
 					EB456A1B1D28C52900988293 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = T8Q6GCQBY7;
+						LastSwiftMigration = 0810;
 						TestTargetID = EB456A051D28C52800988293;
 					};
 					EB456A261D28C52900988293 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = T8Q6GCQBY7;
+						LastSwiftMigration = 0810;
 						TestTargetID = EB456A051D28C52800988293;
 					};
 				};
@@ -235,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB10EE8D1D3C30A60072C490 /* Game.plist in Resources */,
 				EB456A161D28C52900988293 /* LaunchScreen.storyboard in Resources */,
 				EB456A131D28C52900988293 /* Assets.xcassets in Resources */,
 				EB456A111D28C52900988293 /* Main.storyboard in Resources */,
@@ -262,9 +391,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB0C87721D674D1200FAACE2 /* PlayerPickerCellController.swift in Sources */,
+				EB10EE891D3C2E460072C490 /* PlistManager.swift in Sources */,
+				EBA0D3231D414B0700606C24 /* GetVarCellController.swift in Sources */,
+				EB38D4D31D66522500851CA6 /* IncrementerCellController.swift in Sources */,
+				EBF796D91D4691EC00931F83 /* GameHistoryViewController.swift in Sources */,
+				EB5BEB3E1D694C910055B056 /* EasyCellContoller.swift in Sources */,
+				EBAE86E01D655F0A00267962 /* PlayerPickerViewController.swift in Sources */,
+				EBDE91FE1D29A35F0002C878 /* Player.swift in Sources */,
+				EB63ECA91E1ED27E00B813BE /* ThemeEditViewController.swift in Sources */,
 				EB456A0E1D28C52900988293 /* DetailViewController.swift in Sources */,
+				EBF796D71D4691D800931F83 /* GameHistory.swift in Sources */,
+				EB057EBC1D5292DD0037DCCF /* OnOffCellController.swift in Sources */,
+				EB38D4D51D66523700851CA6 /* SegmentedControllCellController.swift in Sources */,
 				EB456A0C1D28C52900988293 /* MasterViewController.swift in Sources */,
+				EB82A2001D57DA5E00BC26A6 /* ManageViewController.swift in Sources */,
+				EBAA6A661D2DA8AC00DB127B /* Action.swift in Sources */,
 				EB456A0A1D28C52900988293 /* AppDelegate.swift in Sources */,
+				EBB7BCE01D4EEF35000660DD /* SettingsViewController.swift in Sources */,
+				EBA0D3211D412D3B00606C24 /* ActionDetail.swift in Sources */,
+				EB63ECA71E1EB56B00B813BE /* ThemeSelectionViewController.swift in Sources */,
+				EB82A2031D57DBB700BC26A6 /* TableViewControllerTemplate.swift in Sources */,
+				EB1EE72A1E1DEAA500E7E8CB /* OtherUnitViewController.swift in Sources */,
+				EB21C3FF1D3D8FCE00D78D9F /* ActionDetailViewController.swift in Sources */,
+				EB82A1FE1D57DA5300BC26A6 /* SelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,8 +483,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -356,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -379,8 +531,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -396,9 +550,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -412,6 +567,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -423,6 +579,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -434,6 +591,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPalTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonopolyPal.app/MonopolyPal";
 			};
 			name = Debug;
@@ -446,6 +604,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPalTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonopolyPal.app/MonopolyPal";
 			};
 			name = Release;
@@ -457,6 +616,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPalUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MonopolyPal;
 			};
 			name = Debug;
@@ -468,6 +628,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Robert-Swanson.MonopolyPalUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MonopolyPal;
 			};
 			name = Release;
@@ -491,6 +652,7 @@
 				EB456A321D28C52900988293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB456A331D28C52900988293 /* Build configuration list for PBXNativeTarget "MonopolyPalTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +661,7 @@
 				EB456A351D28C52900988293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EB456A361D28C52900988293 /* Build configuration list for PBXNativeTarget "MonopolyPalUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +670,7 @@
 				EB456A381D28C52900988293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
