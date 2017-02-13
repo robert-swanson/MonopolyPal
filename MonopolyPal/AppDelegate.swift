@@ -7,7 +7,19 @@
 //
 
 import UIKit
-
+public extension UIImage {
+	public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+		let rect = CGRect(origin: .zero, size: size)
+		UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+		color.setFill()
+		UIRectFill(rect)
+		let image = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		
+		guard let cgImage = image?.cgImage else { return nil }
+		self.init(cgImage: cgImage)
+	}
+}
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 	
@@ -49,16 +61,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 		//		navigationBarAppearace.tintColor = UIColorFromHex(rgbValue: 0xff0000)
 		//		navigationBarAppearace.barTintColor = UIColorFromHex(rgbValue: 0xffffff)
 		// Set navigation bar tint / background colour
+		
 		func getColor(fromString: String)-> UIColor{
-			if (fromString.characters.first == "#"){		//Hex color
-				var newColor = fromString
-				newColor.remove(at: newColor.startIndex)
-				return UIColor(netHex: Int(newColor)!)
-			}
-			else{			//RGB
+			func getInt(fromString: String)-> CGFloat{
+				return CGFloat(Float(fromString
+					)!)
+			}		//RGB
 				let comp = fromString.components(separatedBy: ",")
-				return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
-			}
+				let a = (comp.count == 4) ? comp[3] : "255"
+			//				return UIColor(red: getCGFloat(fromString: comp[0]), green: getCGFloat(fromString: comp[1]), blue: getCGFloat(fromString: comp[2]), alpha: getCGFloat(fromString: a))
+			let c = UIColor(red: Int(comp[0])!
+				, green: Int(comp[1])!, blue: Int(comp[2])!)
+			return c.withAlphaComponent(CGFloat(Float(a)!))
+
+			
+//			return c
 		}
 		
 		
@@ -72,8 +89,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 		}
 		else{
 			colors = themes["Basic Monopoly"]!
-			print("No selected theme")
+			print("No selected theme, choosing default")
 		}
+		
+		// Override point for customization after application launch.
+		// Sets background to a blank/empty image
+//		let c: UIColor = UIColor.red
+//		let i = UIImage(color: c)
+//		UINavigationBar.appearance().setBackgroundImage(i, for: .default)
+//		// Sets shadow (line below the bar) to a blank image
+//		UINavigationBar.appearance().shadowImage = UIImage()
+//		// Sets the translucent background color
+//		UINavigationBar.appearance().backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
+//		// Set translucent. (Default value is already true, so this can be removed if desired.)
+//		UINavigationBar.appearance().isTranslucent = true
+		
 		
 		UINavigationBar.appearance().barTintColor = getColor(fromString: colors["Top Bar"]!)
 		
@@ -86,6 +116,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 		UITabBar.appearance().barTintColor = getColor(fromString: colors["Top Bar"]!)
 		UITabBar.appearance().tintColor = getColor(fromString: colors["Selected Bar Buttons"]!);	UITabBar.appearance().unselectedItemTintColor = getColor(fromString: colors["Unselcted Bar Buttons"]!)
 		
+		UIApplication.shared.statusBarStyle = .lightContent
+
 		print("App Successfully Started")
 		return true
 	}

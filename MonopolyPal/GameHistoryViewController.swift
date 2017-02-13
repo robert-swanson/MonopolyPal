@@ -22,9 +22,37 @@ class HistoryViewController: UITableViewController {
 	var byPlayer: Bool = false
 	var orderTopLatest: Bool = true
 	var hasBeenInformed: Bool = false
-	
-	
+	var cellColor = UIColor()
+	var cellT = UIColor()
 	// MARK:- Custom
+	func customTableColors(){
+		func getColor(fromString: String)-> UIColor{
+			if (fromString.characters.first == "#"){		//Hex color
+				var newColor = fromString
+				newColor.remove(at: newColor.startIndex)
+				return UIColor(netHex: Int(newColor)!)
+			}
+			else{			//RGB
+				let comp = fromString.components(separatedBy: ",")
+				return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
+			}
+		}
+		let themes = settings["Themes"] as! [String:[String:String]]
+		let selected = settings["Selected Theme"] as! String
+		let colors = themes[selected]!
+		
+		let background = colors["Background"]
+		self.tableView.backgroundColor = getColor(fromString: background!)
+		
+		let cell = colors["Cells"]!
+		cellColor = getColor(fromString: cell)
+		
+		let cellText = colors["Cell Text"]!
+		cellT = getColor(fromString: cellText)
+		
+		
+	}
+
 	func fixIDs()
 	{
 		var a = 0
@@ -170,6 +198,7 @@ class HistoryViewController: UITableViewController {
 		settings = game["Settings"] as! [String : AnyObject]
 		self.navigationItem.leftBarButtonItem = self.editButtonItem
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "More"), style: .plain, target: self, action: #selector(organizeAlert))
+		customTableColors()
 		
 	}
 	
@@ -338,6 +367,8 @@ class HistoryViewController: UITableViewController {
 		cell.textLabel?.numberOfLines = 0
 		cell.textLabel?.lineBreakMode = .byWordWrapping
 		cell.sizeToFit()
+		cell.backgroundColor = cellColor
+		cell.textLabel?.textColor = cellT
 		
 		cell.detailTextLabel?.text = (act[1])
 		cell.imageView?.image = UIImage(named: act[2])

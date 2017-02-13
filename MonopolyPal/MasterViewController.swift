@@ -34,6 +34,68 @@ class MasterViewController: UITableViewController {
 	
 	
 	// MARK: - Costum
+	func isFreeParking()->Int{
+		var a = 0
+		for i in peoples{
+			if (i.name.lowercased().contains("free parking")) {
+				return a
+			}
+			a += 1
+		}
+		return Int.min
+	}
+	func renamePlayer(ip: IndexPath){
+		let renamePlayerAlert = UIAlertController(title: "Rename Player", message: "Insert the player's name.", preferredStyle: .alert)
+		renamePlayerAlert.addTextField(configurationHandler: {(textF) in
+			textF.text = self.peoples[ip.row].name
+			textF.selectedTextRange = textF.textRange(from: textF.beginningOfDocument, to: textF.endOfDocument)
+		})
+		
+		let ok = UIAlertAction(title: "OK",
+		                       style: .default,
+		                                 handler:
+			{
+				UIAlertAction in
+				let newName = renamePlayerAlert.textFields![0].text
+				self.peoples[ip.row].name = newName!
+				
+				var players = self.game["Players"] as! [String:AnyObject]
+				var names = players["Names"] as! [String]
+				names[ip.row] = newName!
+				players["Names"] = names as AnyObject
+				self.game["Players"] = players as AnyObject
+				
+				self.saveGame()
+				self.tableView.reloadData()
+		}
+		)
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+		renamePlayerAlert.addAction(ok)
+		renamePlayerAlert.addAction(cancelAction)
+		present(renamePlayerAlert, animated: true, completion: nil)
+	}
+	func deletePlayer(ip: IndexPath){
+		let deletePlayerAlert = UIAlertController(title: "Remoe Player", message: "Are you sure you want to remove this player? You cannot undo this action", preferredStyle: .alert)
+		let deleteAction = UIAlertAction(title: "Delete",
+		                                 style: .destructive,
+		                                 handler:
+			{
+				UIAlertAction in
+				
+				self.remove("PlayersNames", valueAtIndex: ip.row)
+				self.remove("PlayersScores", valueAtIndex: ip.row)
+				self.saveGame()
+				self.peoples.remove(at: ip.row)
+				self.tableView.deleteRows(at: [ip], with: .fade)
+				
+		}
+		)
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+		deletePlayerAlert.addAction(deleteAction)
+		deletePlayerAlert.addAction(cancelAction)
+		present(deletePlayerAlert, animated: true, completion: nil)
+
+	}
 	func customTableColors(){
 		func getColor(fromString: String)-> UIColor{
 			if (fromString.characters.first == "#"){		//Hex color
@@ -171,13 +233,15 @@ class MasterViewController: UITableViewController {
 			
 		}
 		updateGame()
+		
 		let a = game["Badge"] as! Int
 		tabBarController?.tabBar.items?[1].badgeValue = (a == 0) ? nil : String(a)
 		
-		
+		print("Master View Did Load")
 	}
 	override func viewWillAppear(_ animated: Bool) {
 		updateGame()
+		customTableColors()
 		let players = game["Players"]! as! [String:AnyObject]
 		let names = players["Names"]!
 		let ppl = names as! [String]
@@ -194,9 +258,12 @@ class MasterViewController: UITableViewController {
 				peoples.append(Player(PlayerName: ppl[i], Score: scores[i]))
 			}
 		}
+		let a = game["Badge"] as! Int
+		tabBarController?.tabBar.items?[1].badgeValue = (a == 0) ? nil : String(a)
 		tableView.reloadData()
 //		self.clearsSelectionOnViewWillAppear = self.splitViewController!.collapsed
 		super.viewWillAppear(animated)
+		
 		
 	}
 	
@@ -214,7 +281,7 @@ class MasterViewController: UITableViewController {
 		present(copyAlert, animated: true, completion: nil)
 	}
 	// MARK: - Alerts
-	func respondToNewPlayer(_ sender: AnyObject)-> Void
+	func respondToNewPlayer(_ sender: AnyObject)
 	{
 		let newPlayerAlert = UIAlertController(title: "New Player", message: "Insert your name", preferredStyle: .alert)
 		let okAction = UIAlertAction(title: "OK",
@@ -234,19 +301,36 @@ class MasterViewController: UITableViewController {
 						cancel = true
 					}
 				}
+				
 				if !cancel
 				{
-					self.peoples.append(Player(PlayerName: Pname, Score: 2000))
 					self.add("PlayersNames", value: Pname as AnyObject)
-					self.add("PlayersScores", value: 2000 as AnyObject)
-					let indexes: [IndexPath] = [IndexPath(row: self.peoples.count-1, section: 0)]
-					self.tableView.insertRows(at: indexes, with: .fade)
-					
-					//				self.tableView.reloadData()
 
 					
+					let b = Pname.lowercased().contains("free parking")
+					if (self.isFreeParking() != Int.min || b){
+						if (b){
+							self.peoples.append(Player(PlayerName: Pname, Score: 0))
+							self.add("PlayersScores", value: 0 as AnyObject)
+							
+							self.saveGame()
+							self.tableView.reloadData()
+						}
+						else{
+							self.peoples.append(Player(PlayerName: Pname, Score: 2000))
+							self.add("PlayersScores", value: 2000 as AnyObject)
+							self.tableView.insertRows(at: [IndexPath(row: self.peoples.count-2, section: 1)], with: .fade)
+						}
+					}
+					else{
+						self.peoples.append(Player(PlayerName: Pname, Score: 2000))
+						self.add("PlayersScores", value: 2000 as AnyObject)
+						let indexes: [IndexPath] = [IndexPath(row: self.peoples.count-1, section: 0)]
+						self.saveGame()
+						self.tableView.insertRows(at: indexes, with: .fade)
+					}
 				}
-			}
+		}
 		)
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 		newPlayerAlert.addAction(okAction)
@@ -277,56 +361,82 @@ class MasterViewController: UITableViewController {
 	}
 	
 	// MARK: - Table View
-	
-	override func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+	override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+		let delete = UITableViewRowAction(style: .destructive, title: "Forfeit", handler: {action, index in
+			self.deletePlayer(ip: indexPath)
+		})
+		let rename = UITableViewRowAction(style: .normal, title: "Re-Name", handler: {action, index in
+			self.renamePlayer(ip: indexPath)
+		})
+		rename.backgroundColor = .blue
+		
+//		if (isFreeParking() != Int.min && indexPath.section == 0)
+//		{
+//			return [rename]
+//		}
+		return [delete, rename]
+	}
+	override func numberOfSections(in tableView: UITableView) -> Int
+	{
+		return isFreeParking() == Int.min ? 1 : 2
 	}
 	
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return peoples.count
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+	{
+		if (section == 1){
+			return peoples.count - 1
+		}
+		else{
+			if (isFreeParking() != Int.min){
+				return 1
+			}
+			return peoples.count
+		}
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		updateGame()
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+		var ppls = peoples
+		if (isFreeParking() != Int.min){
+			ppls.remove(at: isFreeParking())
+			if(indexPath.section == 0){
+				let fp = peoples[isFreeParking()]
+//				let free = tableView.dequeueReusableCell(withIdentifier: "free", for: indexPath)
+				cell.textLabel?.text = fp.name
+				cell.detailTextLabel?.text = addUnit(to: fp.score)
+//				cell.isUserInteractionEnabled = false
+				cell.backgroundColor = cellColor
+				cell.textLabel?.textColor = cellT
+				cell.imageView?.image = #imageLiteral(resourceName: "Free")
+				cell.accessoryType = .none
+				return cell
+			}
+		}
+		let object = ppls[indexPath.row].name
+//		if !(isFreeParking() != Int.min && indexPath.section == 0){
+			cell.textLabel!.text = object
+			cell.detailTextLabel?.text = addUnit(to: ppls[indexPath.row].score)
+//		}
 		
-		
-		
-		let object = peoples[indexPath.row].name
-		cell.textLabel!.text = object
-		cell.detailTextLabel?.text = addUnit(to: peoples[indexPath.row].score)
 		cell.accessoryType = .disclosureIndicator
 		cell.backgroundColor = cellColor
 		cell.textLabel?.textColor = cellT
+		cell.imageView?.image = nil
 		return cell
 	}
 	
-	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-		// Return false if you do not want the specified item to be editable.
+	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+	{
+		if (indexPath.section == 0 && isFreeParking() != Int.min){
+			return false
+		}
 		return true
 	}
 	
 	override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
 			
-			let deletePlayerAlert = UIAlertController(title: "Delete Player", message: "Are you sure you want to delete this player? You cannot undo this action", preferredStyle: .alert)
-			let deleteAction = UIAlertAction(title: "Delete",
-			                                 style: .destructive,
-			                                 handler:
-				{
-					UIAlertAction in
-					
-					self.remove("PlayersNames", valueAtIndex: indexPath.row)
-					self.remove("PlayersScores", valueAtIndex: indexPath.row)
-					self.saveGame()
-					self.peoples.remove(at: indexPath.row)
-					tableView.deleteRows(at: [indexPath], with: .fade)
-					
-				}
-			)
-			let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-			deletePlayerAlert.addAction(deleteAction)
-			deletePlayerAlert.addAction(cancelAction)
-			present(deletePlayerAlert, animated: true, completion: nil)
 			
 			
 			

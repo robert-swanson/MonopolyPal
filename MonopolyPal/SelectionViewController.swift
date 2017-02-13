@@ -12,6 +12,8 @@ import Foundation
 class SelectionViewController: UITableViewController {
 	
 	// MARK: - Vars
+	var cellColor = UIColor()
+	var cellT = UIColor()
 	var game = (PlistManager.sharedInstance.getValueForKey("Game", key: "Game")! as! [String:AnyObject])
 	var settings = [String:AnyObject]()
 	var games = [String]()
@@ -19,6 +21,34 @@ class SelectionViewController: UITableViewController {
 	var templates: AnyObject?
 	
 	// MARK:- Custom
+	func customTableColors(){
+		func getColor(fromString: String)-> UIColor{
+			if (fromString.characters.first == "#"){		//Hex color
+				var newColor = fromString
+				newColor.remove(at: newColor.startIndex)
+				return UIColor(netHex: Int(newColor)!)
+			}
+			else{			//RGB
+				let comp = fromString.components(separatedBy: ",")
+				return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
+			}
+		}
+		let themes = settings["Themes"] as! [String:[String:String]]
+		let selected = settings["Selected Theme"] as! String
+		let colors = themes[selected]!
+		
+		let background = colors["Background"]
+		self.tableView.backgroundColor = getColor(fromString: background!)
+		
+		let cell = colors["Cells"]!
+		cellColor = getColor(fromString: cell)
+		
+		let cellText = colors["Cell Text"]!
+		cellT = getColor(fromString: cellText)
+		
+		
+	}
+
 	func findSel()
 	{
 		games = templates?.allKeys as! [String]
@@ -69,6 +99,8 @@ class SelectionViewController: UITableViewController {
 		
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
 		super.viewDidLoad()
+		customTableColors()
+
 	}
 	override func setEditing(_ editing: Bool, animated: Bool) {
 		if (editing)
@@ -168,6 +200,8 @@ class SelectionViewController: UITableViewController {
 		else{
 			cell.accessoryType = .none
 		}
+		cell.backgroundColor = cellColor
+		cell.textLabel?.textColor = cellT
 		return cell
 	}
 	

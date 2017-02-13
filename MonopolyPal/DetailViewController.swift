@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import CoreImage
 
 class DetailViewController: UITableViewController {
 	var template = "Monopoly"
@@ -20,7 +21,61 @@ class DetailViewController: UITableViewController {
 	var senderPlayer: Int?
 	var senderPlayerName: String?
 	
+	var close: Bool?
+	var cellColor = UIColor()
+	var cellT = UIColor()
+	
 	//MARK: - Costum
+	func checkMoveOn(){
+		let string = game["Move On"]! as! String
+		let df = DateFormatter()
+		df.timeStyle = .long
+		df.dateStyle = .long
+		if let date = df.date(from: string){
+			print(Date().timeIntervalSince(date).description)
+			if Date().timeIntervalSince(date) <= TimeInterval(2){
+				game["Move On"]! = "" as AnyObject
+				saveGame()
+				moveOn()
+			}
+		}
+		game["Move On"]! = "" as AnyObject
+		saveGame()
+	}
+	func customTableColors(){
+		func getColor(fromString: String)-> UIColor{
+			if (fromString.characters.first == "#"){		//Hex color
+				var newColor = fromString
+				newColor.remove(at: newColor.startIndex)
+				return UIColor(netHex: Int(newColor)!)
+			}
+			else{			//RGB
+				let comp = fromString.components(separatedBy: ",")
+				return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
+			}
+		}
+		let themes = settings["Themes"] as! [String:[String:String]]
+		let selected = settings["Selected Theme"] as! String
+		let colors = themes[selected]!
+		
+		let background = colors["Background"]
+		self.tableView.backgroundColor = getColor(fromString: background!)
+		
+		let cell = colors["Cells"]!
+		cellColor = getColor(fromString: cell)
+		
+		let cellText = colors["Cell Text"]!
+		cellT = getColor(fromString: cellText)
+		
+		
+	}
+
+	func moveOn(){
+		self.dismiss(animated: false, completion: nil)
+	}
+	func cancelAction(){
+	self.dismiss(animated: true, completion: nil)
+	}
 	func addUnit(to: Int)-> String{
 		var rv = ""
 		var unit = settings["Unit"] as! String
@@ -97,12 +152,21 @@ class DetailViewController: UITableViewController {
 	
 	//MARK: - Configuration
 	override func viewDidLoad() {
+		if close == true {
+			close = false
+			self.dismiss(animated: true, completion: nil)
+		}
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAction))
 		settings = game["Settings"] as! [String : AnyObject]
 		super.viewDidLoad()
 		self.configureView()
+		customTableColors()
+		print("Detail View Did load")
 	}
 	override func viewDidAppear(_ animated: Bool) {
+		updateGame()
 		template = settings["Selected Game"] as! String
+		checkMoveOn()
 	}
 	
 	func configureView() {
@@ -165,7 +229,25 @@ class DetailViewController: UITableViewController {
 		}
 		let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
 		cell.textLabel?.text = Ac.actionName
+		var isL = false
+		do{
+			isL = (cell.backgroundColor?.isLight())!
+		}
+		var icon = Ac.actionIcon
+		if (!isL){
+			let filter = CIFilter(name: "CIColorInvert")
+			filter?.setDefaults()
+			filter?.setValue(icon.ciImage, forKey: "inputImage")
+			if let invert = filter?.outputImage{
+				icon = UIImage(ciImage: invert)
+			}
+		}
+		
+		
+		
 		cell.imageView?.image = Ac.actionIcon
+		cell.backgroundColor = cellColor
+		cell.textLabel?.textColor = cellT
 		if (id == "actionW/O")
 		{
 			cell.selectionStyle = .blue
@@ -247,6 +329,11 @@ class DetailViewController: UITableViewController {
 				newHist.append(s)
 				history.append(newHist as AnyObject)
 				game["History"] = history as AnyObject?
+				var current: Int = game["Badge"] as! Int
+				current += 1
+				tabBarController?.tabBar.items?[1].badgeValue = String(current)
+				
+				game["Badge"] = current as AnyObject
 				saveGame()
 			}
 			else
@@ -254,6 +341,7 @@ class DetailViewController: UITableViewController {
 				print("ERROR-EasyActionFalure")
 			}
 			tableView.deselectRow(at: indexPath, animated: true)
+			self.dismiss(animated: true, completion: nil)
 		}
 	}
 	

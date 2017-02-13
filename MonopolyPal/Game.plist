@@ -178,6 +178,7 @@
 		<dict>
 			<key>Theme Names</key>
 			<array>
+				<string>Dark Mode</string>
 				<string>Basic Monopoly</string>
 			</array>
 			<key>Themes</key>
@@ -191,7 +192,7 @@
 					<key>Bar Buttons</key>
 					<string>255,255,255</string>
 					<key>Background</key>
-					<string>255,160,122</string>
+					<string>239,239,244</string>
 					<key>Cells</key>
 					<string>255,255,255</string>
 					<key>Bottom Bar</key>
@@ -202,6 +203,27 @@
 					<string>255,255,0</string>
 					<key>Cell Text</key>
 					<string>0,0,0</string>
+				</dict>
+				<key>Dark Mode</key>
+				<dict>
+					<key>Top Bar</key>
+					<string>24,24,24</string>
+					<key>Titles</key>
+					<string>255,255,255</string>
+					<key>Bar Buttons</key>
+					<string>254,249,38</string>
+					<key>Background</key>
+					<string>13,13,13</string>
+					<key>Cells</key>
+					<string>23,23,23</string>
+					<key>Bottom Bar</key>
+					<string>24,24,24</string>
+					<key>Unselcted Bar Buttons</key>
+					<string>153,153,153</string>
+					<key>Selected Bar Buttons</key>
+					<string>253,148,38</string>
+					<key>Cell Text</key>
+					<string>255,255,255</string>
 				</dict>
 			</dict>
 			<key>Selected Theme</key>
@@ -223,6 +245,8 @@
 		</dict>
 		<key>Badge</key>
 		<integer>0</integer>
+		<key>Move On</key>
+		<string></string>
 		<key>Selected Players</key>
 		<array/>
 	</dict>

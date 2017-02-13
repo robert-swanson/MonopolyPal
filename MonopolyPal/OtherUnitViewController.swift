@@ -11,11 +11,41 @@ import UIKit
 class OtherUnitViewController: UITableViewController {
 	
 	// MARK: - Vars
+	var cellColor = UIColor()
+	var cellT = UIColor()
 	var game = (PlistManager.sharedInstance.getValueForKey("Game", key: "Game")! as! [String:AnyObject])
 	var settings = [String:AnyObject]()
 	
 	
 	// MARK:- Custom
+	func customTableColors(){
+		func getColor(fromString: String)-> UIColor{
+			if (fromString.characters.first == "#"){		//Hex color
+				var newColor = fromString
+				newColor.remove(at: newColor.startIndex)
+				return UIColor(netHex: Int(newColor)!)
+			}
+			else{			//RGB
+				let comp = fromString.components(separatedBy: ",")
+				return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
+			}
+		}
+		let themes = settings["Themes"] as! [String:[String:String]]
+		let selected = settings["Selected Theme"] as! String
+		let colors = themes[selected]!
+		
+		let background = colors["Background"]
+		self.tableView.backgroundColor = getColor(fromString: background!)
+		
+		let cell = colors["Cells"]!
+		cellColor = getColor(fromString: cell)
+		
+		let cellText = colors["Cell Text"]!
+		cellT = getColor(fromString: cellText)
+		
+		
+	}
+
 	func saveGame ()
 	{
 		PlistManager.sharedInstance.saveValue("Game", value: game as AnyObject, forKey: "Game")
@@ -45,9 +75,9 @@ class OtherUnitViewController: UITableViewController {
 	// MARK: - Initializer
 	
 	override func viewDidLoad() {
-		
 		super.viewDidLoad()
 		navigationController?.title = "Other Unit"
+		customTableColors()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -131,7 +161,8 @@ class OtherUnitViewController: UITableViewController {
 		default:
 			identifier = "On/Off"
 		}
-		
+		cell.backgroundColor = cellColor
+		cell.textLabel?.textColor = cellT
 		return cell
 	}
 	

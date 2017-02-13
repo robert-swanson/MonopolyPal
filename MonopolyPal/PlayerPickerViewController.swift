@@ -17,9 +17,38 @@ class PlayerPickerMenu: UITableViewController {
 	var players = [String]()
 	var selectedPlayers: [String] = []
 	var senderPlayer: String?
-	
+	var cellColor = UIColor()
+	var cellT = UIColor()
 	
 	// MARK:- Custom
+	func customTableColors(){
+		func getColor(fromString: String)-> UIColor{
+			if (fromString.characters.first == "#"){		//Hex color
+				var newColor = fromString
+				newColor.remove(at: newColor.startIndex)
+				return UIColor(netHex: Int(newColor)!)
+			}
+			else{			//RGB
+				let comp = fromString.components(separatedBy: ",")
+				return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
+			}
+		}
+		let themes = settings["Themes"] as! [String:[String:String]]
+		let selected = settings["Selected Theme"] as! String
+		let colors = themes[selected]!
+		
+		let background = colors["Background"]
+		self.tableView.backgroundColor = getColor(fromString: background!)
+		
+		let cell = colors["Cells"]!
+		cellColor = getColor(fromString: cell)
+		
+		let cellText = colors["Cell Text"]!
+		cellT = getColor(fromString: cellText)
+		
+		
+	}
+
 	func saveGame ()
 	{
 		PlistManager.sharedInstance.saveValue("Game", value: game as AnyObject, forKey: "Game")
@@ -54,11 +83,12 @@ class PlayerPickerMenu: UITableViewController {
 		self.dismiss(animated: true, completion: nil)
 	}
 	override func viewDidLoad() {
-//		self.navigationController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(done))
 		settings = game["Settings"] as! [String : AnyObject]
 
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
 		super.viewDidLoad()
+		customTableColors()
+		print("Player Picker View Did load")
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -109,6 +139,8 @@ class PlayerPickerMenu: UITableViewController {
 		{
 			cell?.accessoryType = .checkmark
 		}
+		cell?.backgroundColor = cellColor
+		cell?.textLabel?.textColor = cellT
 		return cell!
 	}
 	

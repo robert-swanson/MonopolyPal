@@ -47,8 +47,38 @@ class ActionDetailViewController: UITableViewController {
 	var selectedPlayers: [String] = []
 	var quickAmount: Int?
 	var selectedEasy: Int?
+	var cellColor = UIColor()
+	var cellT = UIColor()
 	
 	//MARK: - Costum
+	func customTableColors(){
+		func getColor(fromString: String)-> UIColor{
+			if (fromString.characters.first == "#"){		//Hex color
+				var newColor = fromString
+				newColor.remove(at: newColor.startIndex)
+				return UIColor(netHex: Int(newColor)!)
+			}
+			else{			//RGB
+				let comp = fromString.components(separatedBy: ",")
+				return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
+			}
+		}
+		let themes = settings["Themes"] as! [String:[String:String]]
+		let selected = settings["Selected Theme"] as! String
+		let colors = themes[selected]!
+		
+		let background = colors["Background"]
+		self.tableView.backgroundColor = getColor(fromString: background!)
+		
+		let cell = colors["Cells"]!
+		cellColor = getColor(fromString: cell)
+		
+		let cellText = colors["Cell Text"]!
+		cellT = getColor(fromString: cellText)
+		
+		
+	}
+
 	func addUnit(to: Int)-> String{
 		var rv = ""
 		var unit = settings["Unit"] as! String
@@ -121,8 +151,8 @@ class ActionDetailViewController: UITableViewController {
 		self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelAction))
 		super.viewDidLoad()
 		self.configureView()
-		//		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-		//		view.addGestureRecognizer(tap)
+		customTableColors()
+		print("Action Detail View Did load")
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -219,6 +249,7 @@ class ActionDetailViewController: UITableViewController {
 		}
 		tableView.deselectRow(at: indexPath, animated: true)
 		
+		
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -226,6 +257,8 @@ class ActionDetailViewController: UITableViewController {
 		let AD: ActionDetail = Details[indexPath.row]
 		let id = AD.detailCellIdentifier
 		let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
+		cell.backgroundColor = cellColor
+		cell.textLabel?.textColor = cellT
 		switch id {
 		case "GetVar":
 			
@@ -266,6 +299,7 @@ class ActionDetailViewController: UITableViewController {
 			
 		case "TradeMode":
 			let a = cell as! SegmentedControllCellController
+			a.textLabel?.textColor = UIColor.white
 			return a
 		case "Easy":
 			let a = cell
@@ -278,8 +312,11 @@ class ActionDetailViewController: UITableViewController {
 			{
 				a.accessoryType = .none
 			}
+			cell.backgroundColor = cellColor
+			cell.textLabel?.textColor = cellT
 			return a
 		//Modify a to change trade mode cell
+			
 		case "Incrementer":
 			let a = cell as! IncrementerCellController
 			a.Label.text = AD.detailLabel! + ": 1"
@@ -301,8 +338,6 @@ class ActionDetailViewController: UITableViewController {
 				let controller = (segue.destination as! UINavigationController).topViewController as! PlayerPickerMenu
 				controller.senderPlayer = senderPlayerName
 				controller.selectedPlayers = selectedPlayers
-				
-				
 			}
 		}
 		
@@ -582,6 +617,14 @@ class ActionDetailViewController: UITableViewController {
 				
 				addBadge()
 				saveGame()
+
+				let df = DateFormatter()
+				df.timeStyle = .long
+				df.dateStyle = .long
+				let date = Date()
+				let sd = df.string(from: date)
+				game["Move On"]! = sd as AnyObject
+				saveGame()
 				self.dismiss(animated: true, completion: nil)
 			}
 		}
@@ -619,13 +662,10 @@ class ActionDetailViewController: UITableViewController {
 			alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 			present(alert, animated: true, completion: nil)
 		}
-		
-		
 	}
 	func cancelAction()
 	{
-		self.dismiss(animated: true, completion: nil)
-		
+				self.dismiss(animated: true, completion: nil)
 	}
 	//MARK: - Cells
 	

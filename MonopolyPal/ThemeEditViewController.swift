@@ -14,7 +14,9 @@ extension UIColor
 	func isLight() -> Bool
 	{
 		let components = self.cgColor.components
-		
+		if (components?.count)! < 3 {
+			return false
+		}
 		let a = ((components?[0])! * 299)
 		let b = ((components?[1])! * 587)
 		let c = ((components?[2])! * 114)
@@ -28,9 +30,11 @@ extension UIColor
 	}
 }
 
-class ThemeEditViewController: UITableViewController {
+class ThemeEditViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
 	
 	// MARK: - Vars
+	var cellColor = UIColor()
+	var cellT = UIColor()
 	var game = (PlistManager.sharedInstance.getValueForKey("Game", key: "Game")! as! [String:AnyObject])
 	var settings = [String:AnyObject]()
 	var themes = [String:[String:String]]()
@@ -39,33 +43,67 @@ class ThemeEditViewController: UITableViewController {
 	var properties = ["Titles","Top Bar","Bottom Bar", "Bar Buttons","Background","Cells","Cell Text","Unselcted Bar Buttons","Selected Bar Buttons"]
 	
 	// MARK:- Custom
+	func customTableColors(){
+		func getColor(fromString: String)-> UIColor{
+			if (fromString.characters.first == "#"){		//Hex color
+				var newColor = fromString
+				newColor.remove(at: newColor.startIndex)
+				return UIColor(netHex: Int(newColor)!)
+			}
+			else{			//RGB
+				let comp = fromString.components(separatedBy: ",")
+				return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
+			}
+		}
+		let themes = settings["Themes"] as! [String:[String:String]]
+		let selected = settings["Selected Theme"] as! String
+		let colors = themes[selected]!
+		
+		let background = colors["Background"]
+		self.tableView.backgroundColor = getColor(fromString: background!)
+		
+		let cell = colors["Cells"]!
+		cellColor = getColor(fromString: cell)
+		
+		let cellText = colors["Cell Text"]!
+		cellT = getColor(fromString: cellText)
+		
+		
+	}
+
 	func getColor(fromString: String)-> UIColor{
+		func getInt(fromString: String)-> CGFloat{
+			return CGFloat(Float(fromString
+				)!)
+		}		//RGB
 		let comp = fromString.components(separatedBy: ",")
-		return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
+		let a = (comp.count == 4) ? comp[3] : "255"
+		if a != "10"{
+			print(fromString," triggered alpha.")
+		}
+		//				return UIColor(red: getCGFloat(fromString: comp[0]), green: getCGFloat(fromString: comp[1]), blue: getCGFloat(fromString: comp[2]), alpha: getCGFloat(fromString: a))
+		let c = UIColor(red: Int(comp[0])!
+			, green: Int(comp[1])!, blue: Int(comp[2])!)
+		return c.withAlphaComponent(CGFloat(Float(a)!))
+		
+		
+		//			return c
 	}
-	/*
-	func contrastColor(color: UIColor) -> UIColor {
-	var d = CGFloat(0)
-	
-	var r = CGFloat(0)
-	var g = CGFloat(0)
-	var b = CGFloat(0)
-	var a = CGFloat(0)
-	
-	color.getRed(&r, green: &g, blue: &b, alpha: &a)
-	
-	// Counting the perceptive luminance - human eye favors green color...
-	let luminance = 1 - ((0.299 * r) + (0.587 * g) + (0.114 * b)) / 255
-	
-	if luminance < 0.5 {
-	d = CGFloat(0) // bright colors - black font
-	} else {
-	d = CGFloat(255) // dark colors - white font
+
+
+	func update() {
+		let sel = settings["Selected Theme"] as! String
+		let themes = settings["Themes"] as! [String: AnyObject]
+		let colors = themes[sel] as! [String:String]
+		
+		UINavigationBar.appearance().barTintColor = getColor(fromString: colors["Top Bar"]!)
+		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: getColor(fromString: colors["Titles"]!)]
+		UIBarButtonItem.appearance().tintColor = getColor(fromString: colors["Bar Buttons"]!)
+		UITabBar.appearance().barTintColor = getColor(fromString: colors["Top Bar"]!)
+		UITabBar.appearance().tintColor = getColor(fromString: colors["Selected Bar Buttons"]!)
+		UITabBar.appearance().unselectedItemTintColor = getColor(fromString: colors["Unselcted Bar Buttons"]!)
 	}
 	
-	return UIColor( red: d, green: d, blue: d, alpha: a)
-	}
-	*/
 	func done(){
 		self.dismiss(animated: true, completion: nil)
 		saveGame()
@@ -92,6 +130,8 @@ class ThemeEditViewController: UITableViewController {
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
 		updateGame()
 		super.viewDidLoad()
+		customTableColors()
+
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -113,11 +153,14 @@ class ThemeEditViewController: UITableViewController {
 			if (compp.count == 3){
 				return compp[0] + "," + compp[1] + "," + compp[2]
 			}
+			else if(compp.count == 4){
+				return compp[0] + "," + compp[1] + "," + compp[2] + "," + compp[3]
+			}
 			else{
 				return "ERROR"
 			}
 		}
-		let alert = UIAlertController(title: "Change \(property)", message: "Type in the RGB value (comma or space seperated) of the color you would like to set.", preferredStyle: .alert)
+		let alert = UIAlertController(title: "Change \(property)", message: "Type in the RGB(A) value (comma or space seperated) of the color you would like to set.", preferredStyle: .alert)
 		let okAction = UIAlertAction(title: "OK",
 		                             style: .default,
 		                             handler:
@@ -131,8 +174,13 @@ class ThemeEditViewController: UITableViewController {
 					return
 				}
 				self.theme[property] = s
+				if (property == "Cells") {
+					let tc = self.getColor(fromString: s).isLight() ? "0,0,0" : "255,255,255"
+					self.theme["Cell Text"] = tc
+				}
 				self.saveGame()
 				self.tableView.reloadData()
+				self.update()
 				
 		}
 		)
@@ -168,6 +216,7 @@ class ThemeEditViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
 		changeAlert(property: properties[indexPath.row])
+		
 		tableView.deselectRow(at: indexPath, animated: true)
 		tableView.reloadData()
 	}

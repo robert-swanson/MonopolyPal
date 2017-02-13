@@ -11,6 +11,8 @@ import UIKit
 class ThemeSelectionViewController: UITableViewController {
 	
 	// MARK: - Vars
+	var cellColor = UIColor()
+	var cellT = UIColor()
 	var game = (PlistManager.sharedInstance.getValueForKey("Game", key: "Game")! as! [String:AnyObject])
 	var settings = [String:AnyObject]()
 	var names = [String]()
@@ -19,6 +21,34 @@ class ThemeSelectionViewController: UITableViewController {
 	
 	
 	// MARK:- Custom
+	func customTableColors(){
+		func getColor(fromString: String)-> UIColor{
+			if (fromString.characters.first == "#"){		//Hex color
+				var newColor = fromString
+				newColor.remove(at: newColor.startIndex)
+				return UIColor(netHex: Int(newColor)!)
+			}
+			else{			//RGB
+				let comp = fromString.components(separatedBy: ",")
+				return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
+			}
+		}
+		let themes = settings["Themes"] as! [String:[String:String]]
+		let selected = settings["Selected Theme"] as! String
+		let colors = themes[selected]!
+		
+		let background = colors["Background"]
+		self.tableView.backgroundColor = getColor(fromString: background!)
+		
+		let cell = colors["Cells"]!
+		cellColor = getColor(fromString: cell)
+		
+		let cellText = colors["Cell Text"]!
+		cellT = getColor(fromString: cellText)
+		
+		
+	}
+
 	func addTheme(_ sender: AnyObject)
 	{
 		let alert = UIAlertController(title: "New Theme", message: "What would you like to call this theme?", preferredStyle: .alert)
@@ -80,6 +110,18 @@ class ThemeSelectionViewController: UITableViewController {
 			return nil
 		}
 	}
+	func update() {
+		let sel = settings["Selected Theme"] as! String
+		let themes = settings["Themes"] as! [String: AnyObject]
+		let colors = themes[sel] as! [String:String]
+		
+		UINavigationBar.appearance().barTintColor = getColor(fromString: colors["Top Bar"]!)
+		UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: getColor(fromString: colors["Titles"]!)]
+		UIBarButtonItem.appearance().tintColor = getColor(fromString: colors["Bar Buttons"]!)
+		UITabBar.appearance().barTintColor = getColor(fromString: colors["Top Bar"]!)
+		UITabBar.appearance().tintColor = getColor(fromString: colors["Selected Bar Buttons"]!)
+		UITabBar.appearance().unselectedItemTintColor = getColor(fromString: colors["Unselcted Bar Buttons"]!)
+	}
 	// MARK: - Segues
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		let controller = (segue.destination as! UINavigationController).topViewController as! ThemeEditViewController
@@ -107,6 +149,8 @@ class ThemeSelectionViewController: UITableViewController {
 		tableView.allowsSelectionDuringEditing = true
 		updateGame()
 		super.viewDidLoad()
+		customTableColors()
+		print("Theme Selection View Did load")
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -119,7 +163,21 @@ class ThemeSelectionViewController: UITableViewController {
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
-	
+	func getColor(fromString: String)-> UIColor{
+		func getInt(fromString: String)-> CGFloat{
+			return CGFloat(Float(fromString
+				)!)
+		}		//RGB
+		let comp = fromString.components(separatedBy: ",")
+		let a = (comp.count == 4) ? comp[3] : "255"
+		//				return UIColor(red: getCGFloat(fromString: comp[0]), green: getCGFloat(fromString: comp[1]), blue: getCGFloat(fromString: comp[2]), alpha: getCGFloat(fromString: a))
+		let c = UIColor(red: Int(comp[0])!
+			, green: Int(comp[1])!, blue: Int(comp[2])!)
+		return c.withAlphaComponent(CGFloat(Float(a)!))
+		
+		
+		//			return c
+	}
 	
 	// MARK: - Alerts
 	func resetGame()
@@ -141,8 +199,9 @@ class ThemeSelectionViewController: UITableViewController {
 			selected = names[indexPath.row]
 			settings["Selected Game"] = selected as AnyObject?
 			tableView.deselectRow(at: indexPath, animated: true)
-			tableView.reloadData()
 			saveGame()
+			update()
+			tableView.reloadData()
 		}
 	}
 	override func numberOfSections(in tableView: UITableView) -> Int {
@@ -164,6 +223,8 @@ class ThemeSelectionViewController: UITableViewController {
 		else{
 			cell?.accessoryType = .none
 		}
+		cell?.backgroundColor = cellColor
+		cell?.textLabel?.textColor = cellT
 		return cell!
 	}
 	

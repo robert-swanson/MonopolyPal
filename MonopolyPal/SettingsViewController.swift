@@ -14,9 +14,38 @@ class SettingsViewController: UITableViewController {
 	// MARK: - Vars
 	var game = (PlistManager.sharedInstance.getValueForKey("Game", key: "Game")! as! [String:AnyObject])
 	var settings = [String:AnyObject]()
-	
+	var cellColor = UIColor()
+	var cellT = UIColor()
 	
 	// MARK:- Custom
+	func customTableColors(){
+		func getColor(fromString: String)-> UIColor{
+			if (fromString.characters.first == "#"){		//Hex color
+				var newColor = fromString
+				newColor.remove(at: newColor.startIndex)
+				return UIColor(netHex: Int(newColor)!)
+			}
+			else{			//RGB
+				let comp = fromString.components(separatedBy: ",")
+				return UIColor(red: Int(comp[0])!, green: Int(comp[1])!, blue: Int(comp[2])!)
+			}
+		}
+		let themes = settings["Themes"] as! [String:[String:String]]
+		let selected = settings["Selected Theme"] as! String
+		let colors = themes[selected]!
+		
+		let background = colors["Background"]
+		self.tableView.backgroundColor = getColor(fromString: background!)
+		
+		let cell = colors["Cells"]!
+		cellColor = getColor(fromString: cell)
+		
+		let cellText = colors["Cell Text"]!
+		cellT = getColor(fromString: cellText)
+		
+		
+	}
+
 	func special(command: String){
 		let commands = command.components(separatedBy: " ")
 		if commands.count != 2 {
@@ -104,7 +133,7 @@ class SettingsViewController: UITableViewController {
 		tableView.reloadData()
 	}
 	override func viewDidLoad() {
-		
+		print("Settings View Did load")
 		super.viewDidLoad()
 	}
 	
@@ -114,6 +143,8 @@ class SettingsViewController: UITableViewController {
 		self.clearsSelectionOnViewWillAppear = false
 		super.viewWillAppear(animated)
 		settings = game["Settings"] as! [String:AnyObject]
+		customTableColors()
+
 	}
 	
 	override func didReceiveMemoryWarning() {
@@ -305,6 +336,9 @@ class SettingsViewController: UITableViewController {
 		}
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+		cell.backgroundColor = cellColor
+		cell.textLabel?.textColor = cellT
+		cell.detailTextLabel?.textColor = cellT
 		
 		if (section == 0)
 		{
@@ -336,6 +370,7 @@ class SettingsViewController: UITableViewController {
 			
 			if (row == 2){
 				let setting = cell as! OnOffCellController
+				cell.textLabel?.textColor = cellT
 				setting.label.text = "Disable Auto Lock"
 				if let set = settings["AutoLock"] {
 					setting.Switch.setOn((set as! String == "true" ? true : false), animated: false)
@@ -345,6 +380,7 @@ class SettingsViewController: UITableViewController {
 			if (row == 3)
 			{
 				let setting = cell as! OnOffCellController
+				cell.textLabel?.textColor = cellT
 				setting.label.text = "Order history top as latest"
 				if let set = settings["Order"] {
 					setting.Switch.setOn((set as! String == "true" ? true : false), animated: false)
@@ -355,6 +391,7 @@ class SettingsViewController: UITableViewController {
 			if (row == 4)
 			{
 				let setting = cell as! OnOffCellController
+				cell.textLabel?.textColor = cellT
 				setting.label.text = "Allow Debt"
 				if let set = settings["Allow Debt"] {
 					setting.Switch.setOn((set as! String == "true" ? true : false), animated: false)
@@ -393,6 +430,7 @@ class SettingsViewController: UITableViewController {
 				{
 					cell.detailTextLabel?.text = ""
 				}
+				cell.isUserInteractionEnabled = false
 			}
 		}
 		if section == 3
@@ -407,6 +445,7 @@ class SettingsViewController: UITableViewController {
 				cell.detailTextLabel?.text = ""
 			}
 		}
+		
 		return cell
 	}
 	
