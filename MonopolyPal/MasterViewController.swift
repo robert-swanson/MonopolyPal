@@ -31,9 +31,14 @@ class MasterViewController: UITableViewController {
 	var peoples: [Player] = []
 	var cellColor = UIColor()
 	var cellT = UIColor()
-	
+	var iconSender: Int? = nil
 	
 	// MARK: - Costum
+	func addPlayerIcon(Sender: Int){
+		iconSender = Sender
+		self.performSegue(withIdentifier: "icon", sender: self)
+		
+	}
 	func isFreeParking()->Int{
 		var a = 0
 		for i in peoples{
@@ -243,10 +248,10 @@ class MasterViewController: UITableViewController {
 		updateGame()
 		customTableColors()
 		let players = game["Players"]! as! [String:AnyObject]
-		let names = players["Names"]!
-		let ppl = names as! [String]
-		let num = ppl.count
-		let scores = game["Players"]!["Scores"]! as! [Int]
+		let names = players["Names"]! as! [String]
+		let num = names.count
+		let scores = players["Scores"]! as! [Int]
+		let icons = players["Icons"]! as! [String:String]
 		
 		let empty: [Player] = []
 		peoples = empty
@@ -255,7 +260,13 @@ class MasterViewController: UITableViewController {
 		{
 			for i in 0...num-1
 			{
-				peoples.append(Player(PlayerName: ppl[i], Score: scores[i]))
+				var piece: String? = nil
+				var iconP: UIImage? = nil
+				if let icon = icons[names[i]]{
+					piece = icon
+					iconP = UIImage(named: icon)
+				}
+				peoples.append(Player(PlayerName: names[i], Score: scores[i], Icon: iconP, imagePath: piece))
 			}
 		}
 		let a = game["Badge"] as! Int
@@ -308,26 +319,28 @@ class MasterViewController: UITableViewController {
 
 					
 					let b = Pname.lowercased().contains("free parking")
-					if (self.isFreeParking() != Int.min || b){
-						if (b){
+					if (self.isFreeParking() != Int.min || b){	// There is free parking
+						if (b){									// This is free parking
 							self.peoples.append(Player(PlayerName: Pname, Score: 0))
 							self.add("PlayersScores", value: 0 as AnyObject)
 							
 							self.saveGame()
 							self.tableView.reloadData()
 						}
-						else{
+						else{									// There was already free parking
 							self.peoples.append(Player(PlayerName: Pname, Score: 2000))
 							self.add("PlayersScores", value: 2000 as AnyObject)
 							self.tableView.insertRows(at: [IndexPath(row: self.peoples.count-2, section: 1)], with: .fade)
+							self.addPlayerIcon(Sender: self.peoples.count-2)
 						}
 					}
-					else{
+					else{										// There is no free parking
 						self.peoples.append(Player(PlayerName: Pname, Score: 2000))
 						self.add("PlayersScores", value: 2000 as AnyObject)
 						let indexes: [IndexPath] = [IndexPath(row: self.peoples.count-1, section: 0)]
 						self.saveGame()
 						self.tableView.insertRows(at: indexes, with: .fade)
+						self.addPlayerIcon(Sender: self.peoples.count-1)
 					}
 				}
 		}
@@ -358,6 +371,18 @@ class MasterViewController: UITableViewController {
 
 			}
 		}
+		if (segue.identifier == "icon"){
+			let controller = (segue.destination as! UINavigationController).topViewController as! PlayerIconPickerViewController
+			controller.sender = iconSender
+			var ppl = peoples
+			if (isFreeParking() != Int.min){
+				ppl.remove(at: isFreeParking())
+			}
+			
+			let s = ppl[iconSender!].name + "'s Piece"
+			print(s)
+			controller.title = s
+		}
 	}
 	
 	// MARK: - Table View
@@ -365,8 +390,11 @@ class MasterViewController: UITableViewController {
 		let delete = UITableViewRowAction(style: .destructive, title: "Forfeit", handler: {action, index in
 			self.deletePlayer(ip: indexPath)
 		})
-		let rename = UITableViewRowAction(style: .normal, title: "Re-Name", handler: {action, index in
+		let rename = UITableViewRowAction(style: .normal, title: "Name", handler: {action, index in
 			self.renamePlayer(ip: indexPath)
+		})
+		let icon = UITableViewRowAction(style: .normal, title: "Piece", handler: {action, index in
+			self.addPlayerIcon(Sender: indexPath.row)
 		})
 		rename.backgroundColor = .blue
 		
@@ -374,7 +402,7 @@ class MasterViewController: UITableViewController {
 //		{
 //			return [rename]
 //		}
-		return [delete, rename]
+		return [delete, rename, icon]
 	}
 	override func numberOfSections(in tableView: UITableView) -> Int
 	{
@@ -405,14 +433,17 @@ class MasterViewController: UITableViewController {
 //				let free = tableView.dequeueReusableCell(withIdentifier: "free", for: indexPath)
 				cell.textLabel?.text = fp.name
 				cell.detailTextLabel?.text = addUnit(to: fp.score)
-//				cell.isUserInteractionEnabled = false
-				cell.backgroundColor = cellColor
+				cell.isUserInteractionEnabled = false
+//				cell.backgroundColor = cellColor
+				cell.backgroundColor = UIColor(red: 232, green: 232, blue: 232)
 				cell.textLabel?.textColor = cellT
 				cell.imageView?.image = #imageLiteral(resourceName: "Free")
 				cell.accessoryType = .none
 				return cell
 			}
 		}
+		cell.imageView?.image = ppls[indexPath.row].icon
+		cell.isUserInteractionEnabled = true
 		let object = ppls[indexPath.row].name
 //		if !(isFreeParking() != Int.min && indexPath.section == 0){
 			cell.textLabel!.text = object
@@ -420,9 +451,10 @@ class MasterViewController: UITableViewController {
 //		}
 		
 		cell.accessoryType = .disclosureIndicator
-		cell.backgroundColor = cellColor
+//		cell.backgroundColor = cellColor
+		cell.backgroundColor = UIColor(red: 232, green: 232, blue: 232)
 		cell.textLabel?.textColor = cellT
-		cell.imageView?.image = nil
+		cell.imageView?.image = ppls[indexPath.row].icon
 		return cell
 	}
 	

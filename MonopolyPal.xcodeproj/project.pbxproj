@@ -26,6 +26,7 @@
 		EB5BEB3E1D694C910055B056 /* EasyCellContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5BEB3D1D694C910055B056 /* EasyCellContoller.swift */; };
 		EB63ECA71E1EB56B00B813BE /* ThemeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63ECA61E1EB56B00B813BE /* ThemeSelectionViewController.swift */; };
 		EB63ECA91E1ED27E00B813BE /* ThemeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB63ECA81E1ED27E00B813BE /* ThemeEditViewController.swift */; };
+		EB69DED41E61071D002C2C01 /* PlayerIconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69DED31E61071D002C2C01 /* PlayerIconPickerViewController.swift */; };
 		EB82A1FE1D57DA5300BC26A6 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB82A1FD1D57DA5300BC26A6 /* SelectionViewController.swift */; };
 		EB82A2001D57DA5E00BC26A6 /* ManageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB82A1FF1D57DA5E00BC26A6 /* ManageViewController.swift */; };
 		EB82A2031D57DBB700BC26A6 /* TableViewControllerTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB82A2021D57DBB700BC26A6 /* TableViewControllerTemplate.swift */; };
@@ -37,6 +38,7 @@
 		EBDE91FE1D29A35F0002C878 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE91FD1D29A35F0002C878 /* Player.swift */; };
 		EBF796D71D4691D800931F83 /* GameHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF796D61D4691D800931F83 /* GameHistory.swift */; };
 		EBF796D91D4691EC00931F83 /* GameHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF796D81D4691EC00931F83 /* GameHistoryViewController.swift */; };
+		EBFC8FE01E62835F008EC860 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC8FDF1E62835F008EC860 /* Piece.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,7 @@
 		EB5BEB3D1D694C910055B056 /* EasyCellContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyCellContoller.swift; sourceTree = "<group>"; };
 		EB63ECA61E1EB56B00B813BE /* ThemeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeSelectionViewController.swift; sourceTree = "<group>"; };
 		EB63ECA81E1ED27E00B813BE /* ThemeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeEditViewController.swift; sourceTree = "<group>"; };
+		EB69DED31E61071D002C2C01 /* PlayerIconPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerIconPickerViewController.swift; sourceTree = "<group>"; };
 		EB82A1FD1D57DA5300BC26A6 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		EB82A1FF1D57DA5E00BC26A6 /* ManageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageViewController.swift; sourceTree = "<group>"; };
 		EB82A2021D57DBB700BC26A6 /* TableViewControllerTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControllerTemplate.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 		EBDE91FD1D29A35F0002C878 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		EBF796D61D4691D800931F83 /* GameHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistory.swift; sourceTree = "<group>"; };
 		EBF796D81D4691EC00931F83 /* GameHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameHistoryViewController.swift; sourceTree = "<group>"; };
+		EBFC8FDF1E62835F008EC860 /* Piece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,7 @@
 			children = (
 				EB456A0B1D28C52900988293 /* MasterViewController.swift */,
 				EBF796D81D4691EC00931F83 /* GameHistoryViewController.swift */,
+				EB69DED31E61071D002C2C01 /* PlayerIconPickerViewController.swift */,
 				EBAE86E11D655F1100267962 /* Actions */,
 				EB82A2011D57DA6500BC26A6 /* Settings */,
 			);
@@ -254,6 +259,7 @@
 				EBDE91FD1D29A35F0002C878 /* Player.swift */,
 				EBAA6A651D2DA8AC00DB127B /* Action.swift */,
 				EBA0D3201D412D3B00606C24 /* ActionDetail.swift */,
+				EBFC8FDF1E62835F008EC860 /* Piece.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 				EB5BEB3E1D694C910055B056 /* EasyCellContoller.swift in Sources */,
 				EBAE86E01D655F0A00267962 /* PlayerPickerViewController.swift in Sources */,
 				EBDE91FE1D29A35F0002C878 /* Player.swift in Sources */,
+				EBFC8FE01E62835F008EC860 /* Piece.swift in Sources */,
 				EB63ECA91E1ED27E00B813BE /* ThemeEditViewController.swift in Sources */,
 				EB456A0E1D28C52900988293 /* DetailViewController.swift in Sources */,
 				EBF796D71D4691D800931F83 /* GameHistory.swift in Sources */,
@@ -418,6 +425,7 @@
 				EB456A0A1D28C52900988293 /* AppDelegate.swift in Sources */,
 				EBB7BCE01D4EEF35000660DD /* SettingsViewController.swift in Sources */,
 				EBA0D3211D412D3B00606C24 /* ActionDetail.swift in Sources */,
+				EB69DED41E61071D002C2C01 /* PlayerIconPickerViewController.swift in Sources */,
 				EB63ECA71E1EB56B00B813BE /* ThemeSelectionViewController.swift in Sources */,
 				EB82A2031D57DBB700BC26A6 /* TableViewControllerTemplate.swift in Sources */,
 				EB1EE72A1E1DEAA500E7E8CB /* OtherUnitViewController.swift in Sources */,

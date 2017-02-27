@@ -163,6 +163,8 @@
 		</dict>
 		<key>Players</key>
 		<dict>
+			<key>Icons</key>
+			<dict/>
 			<key>Names</key>
 			<array>
 				<string>Player</string>

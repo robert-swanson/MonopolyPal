@@ -25,6 +25,19 @@ class HistoryViewController: UITableViewController {
 	var cellColor = UIColor()
 	var cellT = UIColor()
 	// MARK:- Custom
+	func isFreeParking()->Int{
+		var a = 0
+		let players = game["Players"] as! [String:AnyObject]
+		let peoples = players["Names"] as! [String]
+		for i in peoples{
+			if (i.lowercased().contains("free parking")) {
+				return a
+			}
+			a += 1
+		}
+		return Int.min
+	}
+
 	func customTableColors(){
 		func getColor(fromString: String)-> UIColor{
 			if (fromString.characters.first == "#"){		//Hex color
