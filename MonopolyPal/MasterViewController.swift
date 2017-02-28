@@ -80,7 +80,7 @@ class MasterViewController: UITableViewController {
 		present(renamePlayerAlert, animated: true, completion: nil)
 	}
 	func deletePlayer(ip: IndexPath){
-		let deletePlayerAlert = UIAlertController(title: "Remoe Player", message: "Are you sure you want to remove this player? You cannot undo this action", preferredStyle: .alert)
+		let deletePlayerAlert = UIAlertController(title: "Remove Player", message: "Are you sure you want to remove this player? You cannot undo this action", preferredStyle: .alert)
 		let deleteAction = UIAlertAction(title: "Delete",
 		                                 style: .destructive,
 		                                 handler:
@@ -232,11 +232,10 @@ class MasterViewController: UITableViewController {
 		self.navigationItem.leftBarButtonItem = self.editButtonItem
 		let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(respondToNewPlayer(_:)))
 		self.navigationItem.rightBarButtonItem = addButton
-		if let split = self.splitViewController {
-			let controllers = split.viewControllers
-			self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-			
-		}
+//		if let split = self.splitViewController {
+//			let controllers = split.viewControllers
+//			self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+//		}
 		updateGame()
 		
 		let a = game["Badge"] as! Int

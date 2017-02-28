@@ -155,7 +155,10 @@ class HistoryViewController: UITableViewController {
 	{
 		var rv = [Int:[[String]]]()
 		let players = game["Players"] as! [String:AnyObject]
-		let names = players["Names"] as! [String]
+		var names = players["Names"] as! [String]
+		if (isFreeParking() != Int.min){
+			names.remove(at: isFreeParking())
+		}
 		
 		var numbers = [String:Int]()
 		var a = 0
@@ -211,7 +214,7 @@ class HistoryViewController: UITableViewController {
 		settings = game["Settings"] as! [String : AnyObject]
 		self.navigationItem.leftBarButtonItem = self.editButtonItem
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "More"), style: .plain, target: self, action: #selector(organizeAlert))
-		customTableColors()
+//		customTableColors()
 		
 	}
 	
@@ -297,7 +300,6 @@ class HistoryViewController: UITableViewController {
 			updateGame()
 			let players = game["Players"] as! [String:AnyObject]
 			let names = players["Names"]!
-			print("Table has \(names.count) sections.")
 			if (isFreeParking() == Int.min){
 			return names.count
 			}
@@ -315,9 +317,8 @@ class HistoryViewController: UITableViewController {
 		updateGame()
 		if byPlayer
 		{
-		print("Table has \(orgHistory[section]!.count) rows in section \(section).")
 			organizeByPlayer()
-		return orgHistory[section]!.count
+			return orgHistory[section]!.count
 		}
 		else
 		{
@@ -374,7 +375,6 @@ class HistoryViewController: UITableViewController {
 		let act: [String]
 		if byPlayer
 		{
-//			print (indexPath.section,indexPath.row)
 			var section = indexPath.section
 			if (isFreeParking() != Int.min && isFreeParking() <= indexPath.section){
 				section += 1
@@ -439,7 +439,6 @@ class HistoryViewController: UITableViewController {
 						}
 					self.game["History"] = self.history as AnyObject?
 					self.organizeByPlayer()
-//					print(((self.game["History"]! as! [AnyObject])[0] as! [String])[0])
 					self.tableView.deleteRows(at: [indexPath], with: .fade)
 					
 					var info = self.historyNamer(hist[3]) as [String]
@@ -499,7 +498,6 @@ class HistoryViewController: UITableViewController {
 					self.game["Players"] = players as AnyObject?
 					self.game["History"] = self.history! as [AnyObject] as AnyObject?
 					self.saveGame()
-					print (indexPath.section, indexPath.row)
 					
 					self.game["History"] = self.history as AnyObject?
 					self.saveGame()
@@ -520,7 +518,6 @@ class HistoryViewController: UITableViewController {
 						{
 							let row = (self.history!.count-1)
 							let indexP = IndexPath(row: row, section: indexPath.section)
-							print(indexP.section, indexP.row)
 							self.tableView.insertRows(at: [indexP], with: .fade)
 
 						}
