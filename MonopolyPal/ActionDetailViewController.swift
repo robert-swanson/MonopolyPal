@@ -257,8 +257,8 @@ class ActionDetailViewController: UITableViewController {
 		let AD: ActionDetail = Details[indexPath.row]
 		let id = AD.detailCellIdentifier
 		let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)
-		cell.backgroundColor = cellColor
-		cell.textLabel?.textColor = cellT
+//		cell.backgroundColor = cellColor
+//		cell.textLabel?.textColor = cellT
 		switch id {
 		case "GetVar":
 			
@@ -312,8 +312,8 @@ class ActionDetailViewController: UITableViewController {
 			{
 				a.accessoryType = .none
 			}
-			cell.backgroundColor = cellColor
-			cell.textLabel?.textColor = cellT
+//			cell.backgroundColor = cellColor
+//			cell.textLabel?.textColor = cellT
 			return a
 		//Modify a to change trade mode cell
 			
@@ -480,7 +480,8 @@ class ActionDetailViewController: UITableViewController {
 				}
 				else
 				{
-					actionMultiplyer! *= -1
+					actionMultiplyer! = Swift.abs(actionMultiplyer!) * -1
+					
 				}
 			default:
 				break
@@ -522,7 +523,7 @@ class ActionDetailViewController: UITableViewController {
 			
 			if actionOthers != nil{
 				let num = score + (amount * actionOthers!.count)
-				if num < 0{
+				if (num < 0 && !allow){
 					validSubmit = false
 					problem = .playerInDebt
 					debt = num * -1
@@ -531,7 +532,7 @@ class ActionDetailViewController: UITableViewController {
 			}
 			else {
 				let num = score + amount
-				if (num) < 0{
+				if (num) < 0 && !allow{
 					validSubmit = false
 				problem = .playerInDebt
 				debt = num * -1
@@ -552,7 +553,7 @@ class ActionDetailViewController: UITableViewController {
 						break
 					}
 					let hisnum = scs[index!]-amount
-					if hisnum < 0{
+					if hisnum < 0 && !allow{
 						validSubmit = false
 						problem = .playerInDebt
 						debt = hisnum * -1

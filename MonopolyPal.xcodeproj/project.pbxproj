@@ -185,13 +185,20 @@
 			isa = PBXGroup;
 			children = (
 				EBB7BCDF1D4EEF35000660DD /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		EB9BD7D91E651458006BA804 /* Removed */ = {
+			isa = PBXGroup;
+			children = (
 				EB63ECA61E1EB56B00B813BE /* ThemeSelectionViewController.swift */,
 				EB63ECA81E1ED27E00B813BE /* ThemeEditViewController.swift */,
 				EB82A1FD1D57DA5300BC26A6 /* SelectionViewController.swift */,
 				EB82A1FF1D57DA5E00BC26A6 /* ManageViewController.swift */,
 				EB1EE7291E1DEAA500E7E8CB /* OtherUnitViewController.swift */,
 			);
-			name = Settings;
+			name = Removed;
 			sourceTree = "<group>";
 		};
 		EBA0D3241D414C4F00606C24 /* Cells */ = {
@@ -222,6 +229,7 @@
 		EBAA6A681D2DAAE200DB127B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EB9BD7D91E651458006BA804 /* Removed */,
 				EB13F7CE1E249D3300AB52D7 /* Color Picker */,
 				EBB7BCE31D4EF043000660DD /* Classes */,
 				EBA0D3241D414C4F00606C24 /* Cells */,

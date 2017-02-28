@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Wheelbarrow.jpg",
+      "filename" : "Wheelbarrow.png",
       "scale" : "1x"
     },
     {
@@ -11,7 +11,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Wheelbarrow@3x.jpg",
+      "filename" : "Wheelbarrow@3x.png",
       "scale" : "3x"
     }
   ],

@@ -435,8 +435,8 @@ class MasterViewController: UITableViewController {
 				cell.detailTextLabel?.text = addUnit(to: fp.score)
 				cell.isUserInteractionEnabled = false
 //				cell.backgroundColor = cellColor
-				cell.backgroundColor = UIColor(red: 232, green: 232, blue: 232)
-				cell.textLabel?.textColor = cellT
+//				cell.backgroundColor = UIColor(red: 232, green: 232, blue: 232)
+//				cell.textLabel?.textColor = cellT
 				cell.imageView?.image = #imageLiteral(resourceName: "Free")
 				cell.accessoryType = .none
 				return cell
@@ -452,8 +452,8 @@ class MasterViewController: UITableViewController {
 		
 		cell.accessoryType = .disclosureIndicator
 //		cell.backgroundColor = cellColor
-		cell.backgroundColor = UIColor(red: 232, green: 232, blue: 232)
-		cell.textLabel?.textColor = cellT
+//		cell.backgroundColor = UIColor(red: 232, green: 232, blue: 232)
+//		cell.textLabel?.textColor = cellT
 		cell.imageView?.image = ppls[indexPath.row].icon
 		return cell
 	}

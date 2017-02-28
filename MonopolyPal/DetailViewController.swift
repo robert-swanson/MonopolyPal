@@ -246,8 +246,8 @@ class DetailViewController: UITableViewController {
 		
 		
 		cell.imageView?.image = Ac.actionIcon
-		cell.backgroundColor = cellColor
-		cell.textLabel?.textColor = cellT
+//		cell.backgroundColor = cellColor
+//		cell.textLabel?.textColor = cellT
 		if (id == "actionW/O")
 		{
 			cell.selectionStyle = .blue

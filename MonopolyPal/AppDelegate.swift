@@ -142,6 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 	}
 	
 	func applicationWillTerminate(_ application: UIApplication) {
+		UIApplication.shared.isIdleTimerDisabled = false
 		PlistManager.sharedInstance.saveValue("Games", value: game as AnyObject, forKey: "Game")
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 	}

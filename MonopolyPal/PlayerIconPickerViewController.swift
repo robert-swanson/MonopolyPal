@@ -25,7 +25,6 @@ class PlayerIconPickerViewController: UITableViewController {
 	
 	//MARK: - Initialize
 	override func viewDidLoad() {
-		//TODO: Initialize View
 		updateGame()
 		initPlayers()
 		initPieces()
@@ -63,14 +62,13 @@ class PlayerIconPickerViewController: UITableViewController {
 	}
 	func initPieces(){
 		pieces.removeAll()
-		let icons = ["Battleship","Cannon","Car","Cat","Dog","Hat","Horse","Iron","Money","Shoe","Thimble","Wheelbarrow"]
+		let icons = ["Racecar","Dog","Cat","Battleship","Money Bag", "Thimble", "Top Hat", "Iron", "Cannon", "Wheelbarrow", "Rider", "Shoe"]
 		for icon in icons{
 			pieces.append(Piece(icon: UIImage(named:icon)!, title: icon))
 		}
 	}
 	
 	func done(){
-		// TODO: Done
 		self.dismiss(animated: true, completion: nil)
 	}
 	func saveGame ()
@@ -103,22 +101,37 @@ class PlayerIconPickerViewController: UITableViewController {
 	
 //	MARK: - TableView
 	override func numberOfSections(in tableView: UITableView) -> Int {
-		return 1;
+		return 2;
 	}
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if (section == 0){
+			return 1
+		}
 		return pieces.count
 	}
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-		cell?.backgroundColor = UIColor(red: 232, green: 232, blue: 232)
+		if (indexPath.section == 1){
 		cell?.textLabel?.text = pieces[indexPath.row].Title
 		cell?.imageView?.image = pieces[indexPath.row].Icon
+		}
+		else{
+			cell?.textLabel?.text = "None"
+		}
 		return cell!
 	}
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		playersWOFP[sender!].imagePath = pieces[indexPath.row].Title
-		playersWOFP[sender!].icon = pieces[indexPath.row].Icon
-		saveGame()
-		done()
+		if (indexPath.section == 0){
+			playersWOFP[sender!].imagePath = nil
+			playersWOFP[sender!].icon = nil
+			saveGame()
+			done()
+		}
+		else{
+			playersWOFP[sender!].imagePath = pieces[indexPath.row].Title
+			playersWOFP[sender!].icon = pieces[indexPath.row].Icon
+			saveGame()
+			done()
+		}
 	}
 }

@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Canon.jpg",
+      "filename" : "Cannon.png",
       "scale" : "1x"
     },
     {
@@ -11,7 +11,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Canon@3x.jpg",
+      "filename" : "Cannon@3x.png",
       "scale" : "3x"
     }
   ],

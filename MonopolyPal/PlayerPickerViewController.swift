@@ -15,6 +15,7 @@ class PlayerPickerMenu: UITableViewController {
 	var game = (PlistManager.sharedInstance.getValueForKey("Game", key: "Game")! as! [String:AnyObject])
 	var settings = [String:AnyObject]()
 	var players = [String]()
+	var icons = [String:String]()
 	var selectedPlayers: [String] = []
 	var senderPlayer: String?
 	var cellColor = UIColor()
@@ -98,6 +99,7 @@ class PlayerPickerMenu: UITableViewController {
 		super.viewWillAppear(animated)
 		let plrs = game["Players"] as! [String:AnyObject]
 		players = plrs["Names"] as! [String]
+		icons = plrs["Icons"] as! [String:String]
 		players.remove(at: players.index(of: senderPlayer!)!)
 	}
 	
@@ -139,13 +141,18 @@ class PlayerPickerMenu: UITableViewController {
 		{
 			cell?.accessoryType = .checkmark
 		}
-		cell?.backgroundColor = cellColor
-		cell?.textLabel?.textColor = cellT
+//		cell?.backgroundColor = cellColor
+//		cell?.textLabel?.textColor = cellT
+		if let icon = icons[player]{
+			cell?.imageView?.image = UIImage(named: icon)
+		}
+		if player.lowercased().contains("free parking"){
+			cell?.imageView?.image = #imageLiteral(resourceName: "Free")
+		}
 		return cell!
 	}
 	
 	override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-		// Return false if you do not want the specified item to be editable.
 		return false
 	}
 	

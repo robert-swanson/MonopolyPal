@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Hat.jpg",
+      "filename" : "Top Hat.png",
       "scale" : "1x"
     },
     {
@@ -11,7 +11,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Hat@3x.jpg",
+      "filename" : "Top Hat@3x.png",
       "scale" : "3x"
     }
   ],

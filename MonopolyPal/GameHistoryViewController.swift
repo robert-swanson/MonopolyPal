@@ -30,7 +30,7 @@ class HistoryViewController: UITableViewController {
 		let players = game["Players"] as! [String:AnyObject]
 		let peoples = players["Names"] as! [String]
 		for i in peoples{
-			if (i.lowercased().contains("free parking")) {
+			if (i.lowercased().contains("free parking")) {
 				return a
 			}
 			a += 1
@@ -282,7 +282,10 @@ class HistoryViewController: UITableViewController {
 		if byPlayer
 		{
 			let players = game["Players"] as! [String:AnyObject]
-			let names = players["Names"] as! [String]
+			var names = players["Names"] as! [String]
+			if (isFreeParking() != Int.min){
+				names.remove(at: isFreeParking())
+			}
 			return names[section]
 		}
 		return ""
@@ -295,7 +298,12 @@ class HistoryViewController: UITableViewController {
 			let players = game["Players"] as! [String:AnyObject]
 			let names = players["Names"]!
 			print("Table has \(names.count) sections.")
+			if (isFreeParking() == Int.min){
 			return names.count
+			}
+			else{
+				return names.count-1
+			}
 		}
 		else
 		{
@@ -366,8 +374,13 @@ class HistoryViewController: UITableViewController {
 		let act: [String]
 		if byPlayer
 		{
-			print (indexPath.section,indexPath.row)
-			let playerHist = orgHistory[indexPath.section]
+//			print (indexPath.section,indexPath.row)
+			var section = indexPath.section
+			if (isFreeParking() != Int.min && isFreeParking() <= indexPath.section){
+				section += 1
+			}
+			
+			let playerHist = orgHistory[section]
 			act = playerHist![indexPath.row]
 		}
 		else
@@ -380,8 +393,8 @@ class HistoryViewController: UITableViewController {
 		cell.textLabel?.numberOfLines = 0
 		cell.textLabel?.lineBreakMode = .byWordWrapping
 		cell.sizeToFit()
-		cell.backgroundColor = cellColor
-		cell.textLabel?.textColor = cellT
+//		cell.backgroundColor = cellColor
+//		cell.textLabel?.textColor = cellT
 		
 		cell.detailTextLabel?.text = (act[1])
 		cell.imageView?.image = UIImage(named: act[2])

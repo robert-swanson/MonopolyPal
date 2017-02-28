@@ -290,13 +290,14 @@ class SettingsViewController: UITableViewController {
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 	override func numberOfSections(in tableView: UITableView) -> Int {
-		return 4
+		return 2
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		switch section {
 		case 0:
-			return 5
+//			return 5
+			return 4
 		case 1:
 			return 1
 		case 2:
@@ -316,13 +317,14 @@ class SettingsViewController: UITableViewController {
 		case (0,0):
 			identifier = "Basic"
 		case (0,1):
-			identifier = "Basic"
+//			identifier = "Basic"
+			identifier = "On/Off"
 		case (0,2):
 			identifier = "On/Off"
 		case (0,3):
 			identifier = "On/Off"
-		case (0,4):
-			identifier = "On/Off"
+//		case (0,4):
+//			identifier = "On/Off"
 		case (1,0):
 			identifier = "Reset"
 		case (2,0):
@@ -336,9 +338,9 @@ class SettingsViewController: UITableViewController {
 		}
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-		cell.backgroundColor = cellColor
-		cell.textLabel?.textColor = cellT
-		cell.detailTextLabel?.textColor = cellT
+//		cell.backgroundColor = cellColor
+//		cell.textLabel?.textColor = cellT
+//		cell.detailTextLabel?.textColor = cellT
 		
 		if (section == 0)
 		{
@@ -354,21 +356,20 @@ class SettingsViewController: UITableViewController {
 					cell.detailTextLabel?.text = ""
 				}
 			}
-			if (row == 1){
-				cell.textLabel?.text = "Cash/Point Unit"
-				if var unit = settings["Unit"] as! String?
-				{
-					unit.remove(at: unit.startIndex)
-					cell.detailTextLabel!.text = unit
-				}
-				else
-				{
-					cell.detailTextLabel?.text = ""
-				}
-				
-			}
+//			if (row == 1){
+//				cell.textLabel?.text = "Cash/Point Unit"
+//				if var unit = settings["Unit"] as! String?
+//				{
+//					unit.remove(at: unit.startIndex)
+//					cell.detailTextLabel!.text = unit
+//				}
+//				else
+//				{
+//					cell.detailTextLabel?.text = ""
+//				}
+//			}
 			
-			if (row == 2){
+			if (row == 1){
 				let setting = cell as! OnOffCellController
 				cell.textLabel?.textColor = cellT
 				setting.label.text = "Disable Auto Lock"
@@ -377,18 +378,18 @@ class SettingsViewController: UITableViewController {
 				}
 				return setting
 			}
-			if (row == 3)
+			if (row == 2)
 			{
 				let setting = cell as! OnOffCellController
 				cell.textLabel?.textColor = cellT
-				setting.label.text = "Order history top as latest"
+				setting.label.text = "Start History With Recent"
 				if let set = settings["Order"] {
 					setting.Switch.setOn((set as! String == "true" ? true : false), animated: false)
 				}
 				
 				return setting
 			}
-			if (row == 4)
+			if (row == 3)
 			{
 				let setting = cell as! OnOffCellController
 				cell.textLabel?.textColor = cellT

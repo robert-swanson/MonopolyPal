@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Horse.jpg",
+      "filename" : "Money Bag.png",
       "scale" : "1x"
     },
     {
@@ -11,7 +11,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "Horse@3x.jpg",
+      "filename" : "Money Bag@3x.png",
       "scale" : "3x"
     }
   ],
