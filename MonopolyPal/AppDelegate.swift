@@ -45,10 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 		// Override point for customization after application launch.
 		//		let splitViewController = self.window!.rootViewController as! UISplitViewController
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let splitViewController = storyboard.instantiateViewController(withIdentifier: "splitview") as! UISplitViewController
-		let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-		navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-		splitViewController.delegate = self
+//		let splitViewController = storyboard.instantiateViewController(withIdentifier: "splitview") as! UISplitViewController
+//		let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+//		navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+//		splitViewController.delegate = self
 		
 		
 		

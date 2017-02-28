@@ -16,6 +16,7 @@
         <scene sceneID="pY4-Hu-kfo">
             <objects>
                 <navigationController storyboardIdentifier="PlayersNav" title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Players" image="Player" selectedImage="Player" id="bsr-yq-vm8"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -93,7 +94,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="action" textLabel="MvU-ZN-Kcp" imageView="3sT-mX-PTu" style="IBUITableViewCellStyleDefault" id="lX3-Zo-wPP">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lX3-Zo-wPP" id="N9S-ZV-0Xy">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -117,7 +118,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="actionW/O" textLabel="oM9-5Z-h2V" imageView="2Zs-NP-sjb" style="IBUITableViewCellStyleDefault" id="7rm-NA-9cg">
-                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7rm-NA-9cg" id="D43-qY-hNp">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -162,7 +163,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GetVar" id="Kp3-7w-lAo" customClass="GetVarCellController" customModule="MonopolyPal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kp3-7w-lAo" id="c3S-kD-Y5H">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -190,7 +191,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PlayerPicker" textLabel="cSA-ch-bdK" detailTextLabel="9MZ-52-TfN" style="IBUITableViewCellStyleValue1" id="UjM-se-2yR">
-                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UjM-se-2yR" id="bnf-dp-Tdd">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -217,7 +218,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PickerView" rowHeight="247" id="sNb-kO-LQb">
-                                <rect key="frame" x="0.0" y="143.5" width="375" height="247"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="247"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sNb-kO-LQb" id="neG-42-5dQ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="246.5"/>
@@ -236,7 +237,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TradeMode" id="nGx-np-UTH" customClass="SegmentedControllCellController" customModule="MonopolyPal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="390.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="391" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nGx-np-UTH" id="sIM-rT-AK3">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -273,7 +274,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Easy" textLabel="WcJ-sg-cgs" style="IBUITableViewCellStyleDefault" id="T0j-PJ-tAX">
-                                <rect key="frame" x="0.0" y="434.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="435" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T0j-PJ-tAX" id="m93-Z3-kKT">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -290,7 +291,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Incrementer" id="i9J-Nt-Ce4" customClass="IncrementerCellController" customModule="MonopolyPal" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="478.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="479" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i9J-Nt-Ce4" id="NBJ-qu-Ev6">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -323,7 +324,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="s08-Mz-1vG">
-                                <rect key="frame" x="0.0" y="522.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="523" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s08-Mz-1vG" id="Kti-eS-Lsw">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -784,28 +785,14 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="H1p-Uh-vWS" kind="relationship" relationship="viewControllers" id="7tb-ag-5yg"/>
+                        <segue destination="RMx-3f-FxP" kind="relationship" relationship="viewControllers" id="Hp8-yT-5lK"/>
                         <segue destination="KK6-Ai-W6J" kind="relationship" relationship="viewControllers" id="pQA-gr-CyC"/>
                         <segue destination="mec-wT-LKB" kind="relationship" relationship="viewControllers" id="qVM-3u-m2d"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fTj-gF-Qi4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2044" y="835"/>
-        </scene>
-        <!--SplitView-->
-        <scene sceneID="Nki-YV-4Qg">
-            <objects>
-                <splitViewController storyboardIdentifier="splitview" title="SplitView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H1p-Uh-vWS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Players" image="Player" id="oPI-IN-35p"/>
-                    <toolbarItems/>
-                    <connections>
-                        <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="BlO-5A-QYV"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cZU-Oi-B1e" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1550" y="82"/>
+            <point key="canvasLocation" x="-1551" y="834"/>
         </scene>
         <!--Master-->
         <scene sceneID="smW-Zh-WAh">
@@ -817,7 +804,7 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="GSh-aw-UNL" detailTextLabel="QFt-6g-YKb" style="IBUITableViewCellStyleValue1" id="HsO-bw-tUX">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HsO-bw-tUX" id="gf2-tp-5mA">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -844,7 +831,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="free" textLabel="OCi-9a-9g8" detailTextLabel="nfz-UA-emf" imageView="nIb-KJ-iVJ" style="IBUITableViewCellStyleValue1" id="czs-B0-Oqo">
-                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="100" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="czs-B0-Oqo" id="D0R-7q-D9D">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
@@ -1207,6 +1194,6 @@
         <image name="settings1" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B6U-k9-cnl"/>
+        <segue reference="tsl-Nk-0bq"/>
     </inferredMetricsTieBreakers>
 </document>
