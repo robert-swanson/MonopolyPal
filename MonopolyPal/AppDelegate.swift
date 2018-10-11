@@ -138,6 +138,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 	}
 	
 	func applicationDidBecomeActive(_ application: UIApplication) {
+		var settings = game["Settings"] as! [String:AnyObject]
+		let stop = settings["AutoLock"] as! String
+		if (stop == "true"){
+			UIApplication.shared.isIdleTimerDisabled = false
+		}
 		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 	}
 	

@@ -28,6 +28,7 @@ class OnOffCellController: UITableViewCell {
 		{
 		case "Disable Auto Lock":
 			UIApplication.shared.isIdleTimerDisabled = value
+			print("Dissabled autolock: " + ( value).description)
 			settings["AutoLock"] = value ? "true" as AnyObject : "false" as AnyObject
 		case "Order history top as latest":
 			settings["Order"] = value ? "true" as AnyObject : "false" as AnyObject
